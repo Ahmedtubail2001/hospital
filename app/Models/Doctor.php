@@ -10,10 +10,15 @@ class Doctor extends Model
 {
     use HasFactory, Translatable;
     public $translatedAttributes = ['name', 'appointments'];
-    public $fillable = ['email', 'email_verified_id', 'password', 'phone', 'price', 'name', 'appointments' , 'section_id'];
+    public $fillable = ['email', 'email_verified_id', 'password', 'phone', 'price', 'name', 'appointments', 'section_id'];
 
-        public function image()
+    public function image()
     {
         return $this->morphOne(Image::class, 'imageable');
+    }
+
+    public function section()
+    {
+        return $this->belongsTo(Section::class);
     }
 }
