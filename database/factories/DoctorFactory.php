@@ -20,9 +20,9 @@ class DoctorFactory extends Factory
     {
         return [
 
-            // 'name' => $this->faker->name,
-            // 'appointments' => $this->faker->randomElement
-            // (['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']),
+            'name' => $this->faker->name,
+            'appointments' => $this->faker->randomElement
+            (['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_id' => now(),
             'password' => '$2y$10$fXv88VswVz6FmijmoRRC4u0RjbOH.X0EbO08W1D8ZYhEu8SsMVoMa',
