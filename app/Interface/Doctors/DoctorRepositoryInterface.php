@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Interfaces\Doctors;
+namespace App\Interface\Doctors;
 
 interface DoctorRepositoryInterface
 {

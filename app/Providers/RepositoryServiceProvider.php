@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Interface\Section\SectionRepositoryInterface;
-use App\Interfaces\Doctors\DoctorRepositoryInterface;
+use App\Interface\Doctors\DoctorRepositoryInterface;
 use App\Repository\Doctors\DoctorRepository;
 use App\Repository\Section\SectionRepository;
 use Illuminate\Support\ServiceProvider;

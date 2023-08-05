@@ -1,7 +1,8 @@
 <?php
+
 namespace App\Repository\Doctors;
 
-use App\Interfaces\Doctors\DoctorRepositoryInterface;
+use App\Interface\Doctors\DoctorRepositoryInterface;
 use App\Models\Doctor;
 
 
@@ -11,7 +12,7 @@ class DoctorRepository implements DoctorRepositoryInterface
 
     public function index()
     {
-        $doctors = Doctor::with('doctorappointments')->get();
+        $doctors = Doctor::get();
         return view('Dashboard.Doctors.index', compact('doctors'));
     }
 

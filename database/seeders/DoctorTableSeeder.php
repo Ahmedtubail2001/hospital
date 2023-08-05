@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Doctor;
+use App\Models\Doctor as ModelsDoctor;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,6 +13,6 @@ class DoctorTableSeeder extends Seeder
      */
     public function run(): void
     {
-        Doctor::factory()->count(30)->create();
+        ModelsDoctor::factory()->count(30)->create();
     }
 }

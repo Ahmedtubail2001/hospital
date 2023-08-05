@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Interfaces\Doctors\DoctorRepositoryInterface;
+use App\Interface\Doctors\DoctorRepositoryInterface;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
 
@@ -15,11 +15,10 @@ class DoctorController extends Controller
     {
         $this->Doctors = $Doctors;
     }
-    
+
     public function index()
     {
-        // return $this->Doctors->index();
-
+        return $this->Doctors->index();
     }
 
     public function create()

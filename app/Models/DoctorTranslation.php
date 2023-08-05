@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class DoctorTranslation extends Model
 {
-    use HasFactory, Translatable;
+    use HasFactory;
     public $translatedAttributes = ['name', 'appointments'];
+    protected $table = 'doctor_translations';
     public $timestamps = false;
 }
