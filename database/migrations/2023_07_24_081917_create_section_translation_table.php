@@ -14,11 +14,8 @@ return new class extends Migration
         Schema::create('section_translations', function (Blueprint $table) {
 $table->id();
             $table->string('locale')->index();
-
-            // $table->unsignedBigInteger('section_id');
             $table->unique('section_id', 'locale');
             $table->foreignId('section_id')->references('id')->on('sections')->onDelete('cascade');
-
             $table->string('name');
         });
     }

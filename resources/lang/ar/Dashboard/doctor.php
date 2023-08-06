@@ -19,5 +19,7 @@ return [
     'edit_doctors' => 'تعديل الدكتور',
     'Enabled' => 'مفعل',
     'Not_enabled' => 'غير مفعل',
-
+    'password' => 'كلمة المرور',
+    'doctor_photo' => ' صورة الطبيب',
+    'submit' => 'تاكيد',
 ];

@@ -26,8 +26,8 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::group(
     [
-        // 'prefix' => LaravelLocalization::setLocale(),
-        // 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
     ]
     , function () {
 

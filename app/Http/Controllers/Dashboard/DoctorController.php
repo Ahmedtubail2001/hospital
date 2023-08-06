@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Interface\Doctors\DoctorRepositoryInterface;
-use App\Models\Doctor;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
@@ -15,38 +14,25 @@ class DoctorController extends Controller
     {
         $this->Doctors = $Doctors;
     }
-
     public function index()
     {
         return $this->Doctors->index();
     }
-
     public function create()
     {
-        //
+        return $this->Doctors->create();
     }
-
     public function store(Request $request)
     {
-        //
-    }
-
-    public function show(string $id)
-    {
-        //
-    }
-
-    public function edit(string $id)
-    {
-        //
+        return $this->Doctors->store($request);
     }
     public function update(Request $request, string $id)
     {
-        //
+        return $this->Doctors->update($request);
     }
-
-    public function destroy(string $id)
+    public function destroy(request $request)
     {
-        //
+        return $this->Doctors->destroy($request);
+
     }
 }

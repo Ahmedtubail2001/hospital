@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('doctor_translations', function (Blueprint $table) {
             $table->id();
-            // $table->integer('doctor_id')->unsigned();
             $table->string('locale')->index();
             $table->string('name');
             $table->string('appointments');

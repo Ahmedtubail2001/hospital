@@ -19,5 +19,8 @@ return [
     'edit_doctors' => 'Edit Doctors',
     'Enabled' => 'Enabled',
     'Not_enabled' => 'Not Enabled',
+    'password' => 'Password',
+    'doctor_photo' => ' Doctor Photo',
+    'submit' => 'submit',
 
 ];

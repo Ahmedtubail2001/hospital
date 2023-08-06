@@ -26,21 +26,10 @@
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add">
-                            {{ trans('Dashboard/doctor.add_doctors') }}
-                        </button>
-                    </div>
-
-                    {{-- <div class="card-header pb-0">
-
                         <a href="{{ route('Doctors.create') }}" class="btn btn-primary" role="button"
                             aria-pressed="true">{{ trans('Dashboard/doctor.add_doctors') }}</a>
-                        <button type="button" class="btn btn-danger"
-                            id="btn_delete_all">{{ trans('doctors.delete_select') }}</button>
-
-                    </div> --}}
+                    </div>
                 </div>
-
 
                 <div class="card-body">
                     <div class="table-responsive">
@@ -103,7 +92,6 @@
             </div>
         </div>
         <!--/div-->
-        @include('Dashboard.Doctors.add')
     </div>
     <!-- /row -->
     </div>
