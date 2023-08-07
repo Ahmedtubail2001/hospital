@@ -13,4 +13,5 @@ return [
     'Warning' => 'هل انت متاكد من عملية الحذف ؟',
     'sections' => 'الأقسام',
     'view_all' => ' عرض الكل ',
+    'description' => ' الوصف',
 ];

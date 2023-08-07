@@ -39,7 +39,6 @@ trait UploadTrait
 
     // public function verifyAndStoreImageForeach($varforeach, $foldername, $disk, $imageable_id, $imageable_type)
     // {
-
     //     // insert Image
     //     $Image = new Image();
     //     $Image->filename = $varforeach->getClientOriginalName();
@@ -49,12 +48,12 @@ trait UploadTrait
     //     return $varforeach->storeAs($foldername, $varforeach->getClientOriginalName(), $disk);
     // }
 
-    // public function Delete_attachment($disk, $path, $id)
-    // {
+    public function Delete_attachment($disk, $path, $id , $filename)
+    {
 
-    //     Storage::disk($disk)->delete($path);
-    //     image::where('imageable_id', $id)->delete();
+        Storage::disk($disk)->delete($path);
+        Image::where('id', $id)->where('filename' , $filename)->delete();
 
-    // }
+    }
 
 }

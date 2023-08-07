@@ -13,4 +13,6 @@ return [
     'Warning' => 'are sure of the deleting process ?',
     'sections' => 'sections',
     'view_all' => ' view all ',
+    'description' => ' description',
+
 ];

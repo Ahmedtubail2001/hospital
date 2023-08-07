@@ -22,5 +22,6 @@ return [
     'password' => 'Password',
     'doctor_photo' => ' Doctor Photo',
     'submit' => 'submit',
-
+    'Doctors' => 'Doctors',
+    'img' => ' Doctor Image ',
 ];

@@ -41,7 +41,8 @@
                                     <th class="wd-15p border-bottom-0">#</th>
                                     <th class="wd-15p border-bottom-0">{{ trans('Dashboard/sections_trans.name_sections') }}
                                     </th>
-                                    {{-- <th class="wd-15p border-bottom-0">{{trans('Dashboard/sections_trans.description')}}</th> --}}
+                                    <th class="wd-20p border-bottom-0">{{ trans('Dashboard/sections_trans.description') }}
+                                    </th>
                                     <th class="wd-20p border-bottom-0">{{ trans('Dashboard/sections_trans.created_at') }}
                                     </th>
                                     <th class="wd-20p border-bottom-0">{{ trans('Dashboard/sections_trans.Processes') }}
@@ -53,9 +54,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $section->name }}</td>
-                                        {{-- <a href="{{ route('Sections.show', $section->id) }}"></a> --}}
-
-                                        {{-- <td>{{ \Str::limit($section->description, 50) }}</td> --}}
+                                        <td>{{ \Str::limit($section->description, 50) }}</td>
                                         <td>{{ $section->created_at->diffForHumans() }}</td>
                                         <td>
                                             <a class="modal-effect btn btn-sm btn-info" data-effect="effect-scale"

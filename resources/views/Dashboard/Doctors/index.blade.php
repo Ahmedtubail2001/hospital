@@ -37,6 +37,8 @@
                             <thead>
                                 <tr>
                                     <th class="wd-15p border-bottom-0">#</th>
+                                    <th class="wd-15p border-bottom-0"> {{ trans('Dashboard/doctor.img') }}
+                                    </th>
                                     <th class="wd-15p border-bottom-0">{{ trans('Dashboard/doctor.name') }}
                                     </th>
                                     <th class="wd-20p border-bottom-0">{{ trans('Dashboard/doctor.email') }}
@@ -61,6 +63,15 @@
                                 @foreach ($doctors as $doctor)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
+                                        <td>
+                                            @if ($doctor->image)
+                                                <img src="{{ Url::asset('Dashboard/img/doctors/' . $doctor->image->filename) }}"
+                                                    height="50px" width="50px" alt="">
+                                            @else
+                                                <img src="{{ Url::asset('Dashboard/img/doctors/doctor_default.png') }}"
+                                                    height="50px" width="50px" alt="">
+                                            @endif
+                                        </td>
                                         <td>{{ $doctor->name }}</td>
                                         <td>{{ $doctor->email }}</td>
                                         <td>{{ $doctor->section->name }}</td>

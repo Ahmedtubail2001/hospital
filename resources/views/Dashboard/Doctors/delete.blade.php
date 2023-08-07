@@ -15,6 +15,10 @@
             <div class="modal-body">
                 <input type="hidden" name="id" value="{{ $doctor->id }}">
                 <h5>{{trans('Dashboard/sections_trans.Warning')}}</h5>
+                @if ($doctor->image)
+                    <input type="hidden" name="filename" value="{{$doctor->image->filename}}">
+                @endif
+                <input type="hidden" name="id" value="{{$doctor->id}}">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('Dashboard/sections_trans.Close')}}</button>

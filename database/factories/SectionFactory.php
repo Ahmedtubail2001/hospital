@@ -19,6 +19,7 @@ class SectionFactory extends Factory
         return [
             //
             'name' => $this->faker->unique()->randomElement(['Department of Surgery ', 'Orthopedic department', 'Operations department', 'Department of brain and nerves ', 'x_ray place ']),
+            'description'=> $this->faker->paragraph(),
         ];
     }
 }

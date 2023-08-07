@@ -1,22 +1,21 @@
 @extends('Dashboard.layouts.master')
 @section('css')
-<!--Internal Sumoselect css-->
-<link rel="stylesheet" href="{{ URL::asset('Dashboard/plugins/sumoselect/sumoselect-rtl.css') }}">
-<link href="{{ URL::asset('dashboard/plugins/notify/css/notifIt.css') }}" rel="stylesheet" />
+    <!--Internal Sumoselect css-->
+    <link rel="stylesheet" href="{{ URL::asset('Dashboard/plugins/sumoselect/sumoselect-rtl.css') }}">
+    <link href="{{ URL::asset('dashboard/plugins/notify/css/notifIt.css') }}" rel="stylesheet" />
 
-<!-- Internal Select2 css -->
-<link href="{{ URL::asset('Dashboard/plugins/select2/css/select2.min.css') }}" rel="stylesheet">
-<!--Internal  Datetimepicker-slider css -->
-<link href="{{ URL::asset('Dashboard/plugins/amazeui-datetimepicker/css/amazeui.datetimepicker.css') }}"
-    rel="stylesheet">
-<link href="{{ URL::asset('Dashboard/plugins/jquery-simple-datetimepicker/jquery.simple-dtpicker.css') }}"
-    rel="stylesheet">
-<link href="{{ URL::asset('Dashboard/plugins/pickerjs/picker.min.css') }}" rel="stylesheet">
-<!-- Internal Spectrum-colorpicker css -->
-<link href="{{ URL::asset('Dashboard/plugins/spectrum-colorpicker/spectrum.css') }}" rel="stylesheet">
+    <!-- Internal Select2 css -->
+    <link href="{{ URL::asset('Dashboard/plugins/select2/css/select2.min.css') }}" rel="stylesheet">
+    <!--Internal  Datetimepicker-slider css -->
+    <link href="{{ URL::asset('Dashboard/plugins/amazeui-datetimepicker/css/amazeui.datetimepicker.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('Dashboard/plugins/jquery-simple-datetimepicker/jquery.simple-dtpicker.css') }}"
+        rel="stylesheet">
+    <link href="{{ URL::asset('Dashboard/plugins/pickerjs/picker.min.css') }}" rel="stylesheet">
+    <!-- Internal Spectrum-colorpicker css -->
+    <link href="{{ URL::asset('Dashboard/plugins/spectrum-colorpicker/spectrum.css') }}" rel="stylesheet">
 
 @section('title')
-{{ trans('Dashboard/doctor.add_doctors') }}
+    {{ trans('Dashboard/doctor.add_doctors') }}
 @stop
 @endsection
 @section('page-header')
@@ -96,7 +95,7 @@
                                 <select name="section_id" class="form-control SlectBox">
                                     <option value="" selected disabled>------</option>
                                     @foreach ($sections as $section)
-                                    <option value="{{ $section->id }}">{{ $section->name }}</option>
+                                        <option value="{{ $section->id }}">{{ $section->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -111,13 +110,16 @@
                             <div class="col-md-11 mg-t-5 mg-md-t-0">
                                 <select multiple="multiple" class="testselect2" name="appointments[]">
                                     <option selected value="" selected disabled>-- حدد المواعيد --</option>
-                                    <option value="السبت">السبت</option>
+                                    @foreach ($appointments as $appointment)
+                                        <option value="{{$appointment->name}}">{{$appointment->name}}</option>
+                                    @endforeach
+                                    {{-- <option value="السبت">السبت</option>
                                     <option value="الأحد">الأحد</option>
                                     <option value="الإثنين">الإثنين</option>
                                     <option value="الثلاثاء">الثلاثاء</option>
                                     <option value="الأربعاء">الأربعاء</option>
                                     <option value="الخميس">الخميس</option>
-                                    <option value="الجمعة">الجمعة</option>
+                                    <option value="الجمعة">الجمعة</option> --}}
                                 </select>
                             </div>
                         </div>
@@ -143,8 +145,8 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-main-primary pd-x-30 mg-r-5 mg-t-5">{{
-                            trans('Dashboard/doctor.submit') }}</button>
+                        <button type="submit"
+                            class="btn btn-main-primary pd-x-30 mg-r-5 mg-t-5">{{ trans('Dashboard/doctor.submit') }}</button>
                     </div>
                 </form>
             </div>
@@ -160,10 +162,10 @@
 @section('js')
 
 <script>
-    var loadFile = function (event) {
+    var loadFile = function(event) {
         var output = document.getElementById('output');
         output.src = URL.createObjectURL(event.target.files[0]);
-        output.onload = function () {
+        output.onload = function() {
             URL.revokeObjectURL(output.src) // free memory
         }
     };
