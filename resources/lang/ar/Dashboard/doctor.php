@@ -24,4 +24,13 @@ return [
     'submit' => 'تاكيد',
     'Doctors' => 'الأطباء',
     'img' => ' صورة الدكتور ',
+    'delete_select' => 'حذف مجموعة دكاترة',
+    'edit_data' => ' تعديل البيانات ',
+    'change_password' => ' تغير كلمة المرور ',
+    'Status_change' => '  تغير الحالة ',
+    'delete_data' => ' حذف البيانات ',
+    'new_password' => ' كلمة المرور الجديدة ',
+    'update_password' => ' تحديث كلمة المرور ',
+    'confirm_password' => 'تأكيد كلمة المرور',
+    'Choose' => ' اختر من القائمة ',
 ];

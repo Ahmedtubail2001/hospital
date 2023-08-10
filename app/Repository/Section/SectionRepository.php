@@ -3,7 +3,7 @@
 namespace App\Repository\Section;
 
 use App\Interface\Section\SectionRepositoryInterface;
-use App\Models\Models\Section;
+use App\Models\Section;
 use App\Models\Section as ModelsSection;
 
 class SectionRepository implements SectionRepositoryInterface
@@ -18,7 +18,7 @@ class SectionRepository implements SectionRepositoryInterface
     public function store($request)
     {
         $data = [
-            'en' => ['name' => $request->name]
+            'en' => ['name' => $request->name],
         ];
         $section = ModelsSection::create($data);
         if ($section) {
@@ -44,5 +44,13 @@ class SectionRepository implements SectionRepositoryInterface
         $section = ModelsSection::findOrFail($request->id)->delete();
         session()->flash('delete');
         return redirect()->route('Sections.index');
+    }
+
+    public function show($id)
+    {
+        $doctors = Section::findOrFail($id)->doctors;
+        $section = Section::findOrFail($id);
+        return view('Dashboard.Sections.show_doctors', compact('doctors', 'section'));
+
     }
 }

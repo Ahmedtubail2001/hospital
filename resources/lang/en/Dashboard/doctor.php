@@ -24,4 +24,14 @@ return [
     'submit' => 'submit',
     'Doctors' => 'Doctors',
     'img' => ' Doctor Image ',
+    'delete_select' => ' Delete Select',
+    'edit_data' => '  Edit  Data ',
+    'change_password' => '  Change Password ',
+    'Status_change' => ' Status Change ',
+    'delete_data' => ' Delete Data ',
+    'new_password' => ' New Password ',
+    'update_password' => ' Update Password ',
+    'confirm_password' => 'Confirm Password',
+    'Choose' => 'Choose from the list',
+
 ];

@@ -26,8 +26,8 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::group(
     [
-        'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
+        // 'prefix' => LaravelLocalization::setLocale(),
+        // 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
     ]
     , function () {
 
@@ -47,10 +47,11 @@ Route::group(
         //################################### End Dashboard Admin ###################################\\
 
         Route::middleware('auth:admin')->group(function () {
-            
+
             Route::resource('Sections', SectionController::class);
             Route::resource('Doctors', DoctorController::class);
-
+            Route::post('update_password', [DoctorController::class, 'update_password'])->name('update_password');
+            Route::post('update_status', [DoctorController::class, 'update_status'])->name('update_status');
 
         });
 

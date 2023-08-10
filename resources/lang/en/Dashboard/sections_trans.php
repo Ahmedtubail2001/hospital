@@ -14,5 +14,4 @@ return [
     'sections' => 'sections',
     'view_all' => ' view all ',
     'description' => ' description',
-
 ];

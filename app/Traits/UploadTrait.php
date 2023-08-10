@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Str;
 
-
 trait UploadTrait
 {
     public function verifyAndStoreImage(Request $request, $inputname, $foldername, $disk, $imageable_id, $imageable_type)
@@ -48,11 +47,11 @@ trait UploadTrait
     //     return $varforeach->storeAs($foldername, $varforeach->getClientOriginalName(), $disk);
     // }
 
-    public function Delete_attachment($disk, $path, $id , $filename)
+    public function Delete_attachment($disk, $path, $id)
     {
 
         Storage::disk($disk)->delete($path);
-        Image::where('id', $id)->where('filename' , $filename)->delete();
+        Image::where('imageable_id', $id)->delete();
 
     }
 

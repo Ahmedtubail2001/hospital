@@ -25,10 +25,13 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header pb-0">
-                    <div class="d-flex justify-content-between">
-                        <a href="{{ route('Doctors.create') }}" class="btn btn-primary" role="button"
-                            aria-pressed="true">{{ trans('Dashboard/doctor.add_doctors') }}</a>
-                    </div>
+                    <a href="{{ route('Doctors.create') }}" class="btn btn-primary" role="button"
+                        aria-pressed="true">{{ trans('Dashboard/doctor.add_doctors') }}</a>
+
+                    <button type="button" class="btn btn-danger"
+                        id="btn_delete_all">{{ trans('Dashboard/doctor.delete_select') }}
+                    </button>
+
                 </div>
 
                 <div class="card-body">
@@ -37,6 +40,8 @@
                             <thead>
                                 <tr>
                                     <th class="wd-15p border-bottom-0">#</th>
+                                    <th class="wd-15p border-bottom-0"> <input name="select_all" id="example-select-all"
+                                            type="checkbox" /> </th>
                                     <th class="wd-15p border-bottom-0"> {{ trans('Dashboard/doctor.img') }}
                                     </th>
                                     <th class="wd-15p border-bottom-0">{{ trans('Dashboard/doctor.name') }}
@@ -64,6 +69,10 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
+                                            <input type="checkbox" name="delete_select" value="{{ $doctor->id }}"
+                                                class="delete_select">
+                                        </td>
+                                        <td>
                                             @if ($doctor->image)
                                                 <img src="{{ Url::asset('Dashboard/img/doctors/' . $doctor->image->filename) }}"
                                                     height="50px" width="50px" alt="">
@@ -76,7 +85,13 @@
                                         <td>{{ $doctor->email }}</td>
                                         <td>{{ $doctor->section->name }}</td>
                                         <td>{{ $doctor->phone }}</td>
-                                        <td>{{ $doctor->appointments }}</td>
+                                        <td>
+                                        
+                                            @foreach ($doctor->doctorappointments as $appointments )
+                                                {{$appointments->name}}
+                                            @endforeach
+                                        
+                                        </td>
                                         <td>{{ $doctor->price }}</td>
                                         <td>
                                             <div
@@ -84,17 +99,41 @@
                                             </div>
                                             {{ $doctor->status == 1 ? trans('Dashboard/doctor.Enabled') : trans('Dashboard/doctor.Not_enabled') }}
                                         </td>
-                                        <td>{{ $doctor->created_at }}</td>
+                                        <td>{{ $doctor->created_at->diffForHumans() }}</td>
                                         <td>
-                                            <a class="modal-effect btn btn-sm btn-info" data-effect="effect-scale"
-                                                data-toggle="modal" href="#edit1"><i class="las la-pen"></i></a>
-                                            <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
-                                                data-toggle="modal" href="#delete1"><i class="las la-trash"></i></a>
+                                            <div class="dropdown">
+                                                <button aria-expanded="false" aria-haspopup="true"
+                                                    class="btn ripple btn-outline-primary btn-sm" data-toggle="dropdown"
+                                                    type="button">{{ trans('Dashboard/doctor.Processes') }}<i
+                                                        class="fas fa-caret-down mr-1"></i></button>
+                                                <div class="dropdown-menu tx-13">
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('Doctors.edit', $doctor->id) }}"><i
+                                                            style="color: #0ba360"
+                                                            class="text-success ti-user"></i>&nbsp;&nbsp;
+                                                        {{ trans('Dashboard/doctor.edit_data') }}</a>
+
+                                                    <a class="dropdown-item" href="#" data-toggle="modal"
+                                                        data-target="#update_password{{ $doctor->id }}"><i
+                                                            class="text-primary ti-key"></i>&nbsp;&nbsp;{{ trans('Dashboard/doctor.change_password') }}</a>
+                                                    
+                                                            <a class="dropdown-item" href="#" data-toggle="modal"
+                                                        data-target="#update_status{{ $doctor->id }}"><i
+                                                            class="text-warning ti-back-right"></i>&nbsp;&nbsp;
+                                                        {{ trans('Dashboard/doctor.Status_change') }}</a>
+                                                    <a class="dropdown-item" href="#" data-toggle="modal"
+                                                        data-target="#delete{{ $doctor->id }}"><i
+                                                            class="text-danger  ti-trash"></i>&nbsp;&nbsp;{{ trans('Dashboard/doctor.delete_data') }}</a>
+                                                </div>
+                                            </div>
                                         </td>
 
                                     </tr>
-                                    @include('Dashboard.Doctors.edit')
+                                    {{-- @include('Dashboard.Doctors.edit') --}}
                                     @include('Dashboard.Doctors.delete')
+                                    @include('Dashboard.Doctors.delete_select')
+                                    @include('Dashboard.Doctors.update_password')
+                                    @include('Dashboard.Doctors.update_status')
                                 @endforeach
                             </tbody>
                         </table>
@@ -113,6 +152,33 @@
 
 
 @section('js')
+    <script>
+        $(function() {
+            jQuery("[name=select_all]").click(function(source) {
+                checkboxes = jQuery("[name=delete_select]");
+                for (var i in checkboxes) {
+                    checkboxes[i].checked = source.target.checked;
+                }
+            });
+        })
+    </script>
+
+    <script type="text/javascript">
+        $(function() {
+            $("#btn_delete_all").click(function() {
+                var selected = [];
+                $("#example input[name=delete_select]:checked").each(function() {
+                    selected.push(this.value);
+                });
+
+                if (selected.length > 0) {
+                    $('#delete_select').modal('show')
+                    $('input[id="delete_select_id"]').val(selected);
+                }
+            });
+        });
+    </script>
+
     <!-- Internal Data tables -->
     <script src="{{ URL::asset('Dashboard/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ URL::asset('Dashboard/plugins/datatable/js/dataTables.dataTables.min.js') }}"></script>
