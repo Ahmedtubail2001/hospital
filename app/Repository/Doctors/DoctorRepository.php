@@ -39,16 +39,16 @@ class DoctorRepository implements DoctorRepositoryInterface
             $doctors->section_id = $request->section_id;
             $doctors->phone = $request->phone;
             $doctors->status = 1;
-
-            // dd($doctors);
             $doctors->save();
+            // dd($doctors);
 
             // store trans
             $doctors->name = $request->name;
-            // $doctors->appointments = implode(',', $request->appointments);
-            // dd($doctors);
             $doctors->save();
+            // dd($doctors);
 
+            // $doctors->doctorappointments()->attach( $request->appointments);
+            
             //Upload img
             $this->verifyAndStoreImage($request, 'photo', 'doctors', 'upload_image', $doctors->id, 'App\Models\Doctor');
 

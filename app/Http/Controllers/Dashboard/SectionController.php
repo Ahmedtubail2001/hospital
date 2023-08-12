@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Interface\Section\SectionRepositoryInterface;
+use App\Http\Requests\StoreSectionRequest;
 use Illuminate\Http\Request;
 
 class SectionController extends Controller
@@ -27,7 +28,7 @@ class SectionController extends Controller
         return $this->Sections->show($id);
     }
 
-    public function store(Request $request)
+    public function store(StoreSectionRequest $request)
     {
         //
         return $this->Sections->store($request);

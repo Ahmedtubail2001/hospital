@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\DoctorController;
 use App\Http\Controllers\Dashboard\SectionController;
+use App\Http\Controllers\Dashboard\SingleServiceController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -26,8 +27,8 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::group(
     [
-        // 'prefix' => LaravelLocalization::setLocale(),
-        // 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
     ]
     , function () {
 
@@ -52,6 +53,9 @@ Route::group(
             Route::resource('Doctors', DoctorController::class);
             Route::post('update_password', [DoctorController::class, 'update_password'])->name('update_password');
             Route::post('update_status', [DoctorController::class, 'update_status'])->name('update_status');
+
+
+            Route::resource('Service', SingleServiceController::class);
 
         });
 

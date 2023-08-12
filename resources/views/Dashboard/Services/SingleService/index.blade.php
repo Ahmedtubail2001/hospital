@@ -12,8 +12,8 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">{{ trans('Dashboard/sections_trans.sections') }}</h4><span
-                    class="text-muted mt-1 tx-13 mr-2 mb-0">/ {{ trans('Dashboard/sections_trans.view_all') }}</span>
+                <h4 class="content-title mb-0 my-auto">{{ trans('Dashboard/Service.Service') }}</h4><span
+                    class="text-muted mt-1 tx-13 mr-2 mb-0">/ {{ trans('Dashboard/Service.Single_Serve') }}</span>
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add">
-                            {{ trans('Dashboard/sections_trans.add_sections') }}
+                            {{ trans('Dashboard/Service.add_Service') }}
                         </button>
                     </div>
                 </div>
@@ -40,35 +40,42 @@
                         <table class="table text-md-nowrap" id="example1">
                             <thead>
                                 <tr>
-                                    <th class="wd-15p border-bottom-0">#</th>
-                                    <th class="wd-15p border-bottom-0">{{ trans('Dashboard/sections_trans.name_sections') }}
-                                    </th>
-                                    <th class="wd-20p border-bottom-0">{{ trans('Dashboard/sections_trans.description') }}
-                                    </th>
-                                    <th class="wd-20p border-bottom-0">{{ trans('Dashboard/sections_trans.created_at') }}
-                                    </th>
-                                    <th class="wd-20p border-bottom-0">{{ trans('Dashboard/sections_trans.Processes') }}
-                                    </th>
+                                    <th>#</th>
+                                    <th> {{ trans('Dashboard/Service.name') }}</th>
+                                    <th> {{ trans('Dashboard/Service.price') }}</th>
+                                    <th> {{ trans('Dashboard/Service.Status') }}</th>
+                                    <th> {{ trans('Dashboard/Service.description') }}</th>
+                                    <th>{{ trans('Dashboard/Service.created_at') }}</th>
+                                    <th>{{ trans('Dashboard/Service.Processes') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($sections as $section)
+                                @foreach ($services as $service)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td> <a href="{{route('Sections.show' , $section->id)}}"> {{ $section->name }} </a> </td>
-                                        <td>{{ \Str::limit($section->description, 50) }}</td>
-                                        <td>{{ $section->created_at->diffForHumans() }}</td>
+                                        <td>{{ $service->name}}</td>
+                                        <td>{{ $service->price }}</td>
+                                        <td>
+                                            <div
+                                                class="dot-label bg-{{ $service->status == 1 ? 'success' : 'danger' }} ml-1">
+                                            </div>
+                                            {{ $service->status == 1 ? trans('Dashboard/doctor.Enabled') : trans('Dashboard/doctor.Not_enabled') }}
+                                        </td>
+                                        <td> {{ Str::limit($service->description, 50) }}</td>
+                                        <td>{{ $service->created_at->diffForHumans() }}</td>
                                         <td>
                                             <a class="modal-effect btn btn-sm btn-info" data-effect="effect-scale"
-                                                data-toggle="modal" href="#edit{{ $section->id }}"><i
+                                                data-toggle="modal" href="#edit{{ $service->id }}"><i
                                                     class="las la-pen"></i></a>
                                             <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
-                                                data-toggle="modal" href="#delete{{ $section->id }}"><i
+                                                data-toggle="modal" href="#delete{{ $service->id }}"><i
                                                     class="las la-trash"></i></a>
                                         </td>
                                     </tr>
-                                    @include('Dashboard.Sections.edit')
-                                    @include('Dashboard.Sections.delete')
+
+
+                                    @include('Dashboard.Services.SingleService.edit')
+                                    @include('Dashboard.Services.SingleService.delete')
                                 @endforeach
                             </tbody>
                         </table>
@@ -77,7 +84,7 @@
             </div>
         </div>
         <!--/div-->
-        @include('Dashboard.Sections.add')
+        @include('Dashboard.Services.SingleService.add')
     </div>
     <!-- /row -->
     </div>
@@ -85,7 +92,6 @@
     </div>
     <!-- main-content closed -->
 @endsection
-
 
 @section('js')
     <!-- Internal Data tables -->
