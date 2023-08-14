@@ -11,6 +11,8 @@
 <!-- Sidemenu css -->
 <link rel="stylesheet" href="{{URL::asset('Dashboard/css-rtl/sidemenu.css')}}"> --}}
 @yield('css')
+    @livewireStyles
+
 @if (App::getLocale() == 'ar')
     <!-- Favicon -->
     <link rel="icon" href="{{ URL::asset('Dashboard/img/brand/favicon.png') }}" type="image/x-icon" />

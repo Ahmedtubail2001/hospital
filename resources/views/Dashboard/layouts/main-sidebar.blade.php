@@ -96,7 +96,7 @@
                         class="angle fe fe-chevron-down"></i></a>
                 <ul class="slide-menu">
                     <li><a class="slide-item" href="{{route ('Service.index') }}">{{ trans('Dashboard/Service.Single_Serve') }}</a></li>
-                    <li><a class="slide-item" href="#">{{ trans('Dashboard/Service.Group_Services') }}</a></li>
+                    <li><a class="slide-item" href="{{route ('Add_GroupServices') }}">{{ trans('Dashboard/Service.Group_Services') }}</a></li>
                     <li><a class="slide-item" href="#">{{ trans('Dashboard/Service.Insurance_Companies') }}</a></li>
                     <li><a class="slide-item" href="#">{{ trans('Dashboard/Service.Ambulance') }}</a></li>
                     <li><a class="slide-item" href="#">{{ trans('Dashboard/Service.Ambulance_Calls') }}</a></li>

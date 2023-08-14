@@ -54,8 +54,9 @@ Route::group(
             Route::post('update_password', [DoctorController::class, 'update_password'])->name('update_password');
             Route::post('update_status', [DoctorController::class, 'update_status'])->name('update_status');
 
-
             Route::resource('Service', SingleServiceController::class);
+
+            Route::view('Add_GroupServices', 'livewire.GroupServices.include_create')->name('Add_GroupServices');
 
         });
 
