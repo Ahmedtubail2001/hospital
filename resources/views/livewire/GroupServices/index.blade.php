@@ -22,9 +22,9 @@
             @foreach ($groups as $group)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $group->name }}</td>
+                    <td>{{ $group->nameLang }}</td>
                     <td>{{ number_format($group->Total_with_tax, 2) }}</td>
-                    <td>{{ $group->notes }}</td>
+                    <td>{{ $group->notesLang }}</td>
                     <td>
                         <button wire:click="edit({{ $group->id }})" class="btn btn-primary btn-sm"><i
                                 class="fa fa-edit"></i></button>

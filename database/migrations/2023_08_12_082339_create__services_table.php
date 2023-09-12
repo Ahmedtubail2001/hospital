@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('Services', function (Blueprint $table) {
             $table->id();
-            $table->decimal('price' , '8' , '2');
-            $table->text('description')->nullable();
+            $table->decimal('price', '8', '2');
+            $table->text('description_en')->nullable();
+            $table->text('description_ar')->nullable();
             $table->boolean('status')->default(1);
+            $table->string('name_en')->nullable();
+            $table->string('name_ar')->nullable();
             $table->timestamps();
         });
     }

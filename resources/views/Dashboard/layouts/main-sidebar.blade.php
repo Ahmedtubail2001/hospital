@@ -56,7 +56,7 @@
                     <li><a class="slide-item"
                             href="{{ route('Sections.index') }}">{{ trans('Dashboard/main-sidebar.View_All') }}</a>
                     </li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'darggablecards')) }}">Darggablecards</a>
+                    {{-- <li><a class="slide-item" href="{{ url('/' . ($page = 'darggablecards')) }}">Darggablecards</a>
                     </li>
                     <li><a class="slide-item" href="{{ url('/' . ($page = 'rangeslider')) }}">Range-slider</a></li>
                     <li><a class="slide-item" href="{{ url('/' . ($page = 'calendar')) }}">Calendar</a></li>
@@ -65,7 +65,7 @@
                     <li><a class="slide-item" href="{{ url('/' . ($page = 'notification')) }}">Notification</a></li>
                     <li><a class="slide-item"
                             href="{{ url('/' . ($page = 'widget-notification')) }}">Widget-notification</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'treeview')) }}">Treeview</a></li>
+                    <li><a class="slide-item" href="{{ url('/' . ($page = 'treeview')) }}">Treeview</a></li> --}}
                 </ul>
             </li>
             <li class="slide">

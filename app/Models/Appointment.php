@@ -2,15 +2,22 @@
 
 namespace App\Models;
 
-use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Appointment extends Model
 {
-    use Translatable;
     use HasFactory;
-    public $translatedAttributes = ['name'];
-    public $fillable = ['name'];
+    public $fillable = ['name_ar', 'name_en'];
+
+    public function getNameLangAttribute()
+    {
+        if (app()->getLocale() == 'en') {
+            return $this->name_en;
+        } else {
+            return $this->name_ar;
+        }
+
+    }
 
 }

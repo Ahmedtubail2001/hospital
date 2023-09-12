@@ -1,7 +1,5 @@
 @extends('Dashboard.layouts.master')
 @section('css')
-
-
 @endsection
 
 @section('page-header')
@@ -40,17 +38,20 @@
                                 @foreach ($doctors as $doctor)
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
-                                        <td>{{ $doctor->name }}</td>
+                                        <td>{{ $doctor->namelang }}</td>
                                         <td>{{ $doctor->email }}</td>
-                                        <td>{{ $doctor->section->name }}</td>
+                                        <td>{{ $doctor->section->namelang }}</td>
                                         <td>{{ $doctor->phone }}</td>
                                         <td>
                                             @foreach ($doctor->doctorappointments as $appointment)
-                                                {{ $appointment->name }}
+                                                <span class="badge badge-primary p-1">
+                                                    {{ $appointment->namelang }}
+                                                </span>
                                             @endforeach
                                         </td>
                                         <td>
-                                            <div class="dot-label bg-{{ $doctor->status == 1 ? 'success' : 'danger' }} ml-1">
+                                            <div
+                                                class="dot-label bg-{{ $doctor->status == 1 ? 'success' : 'danger' }} ml-1">
                                             </div>
                                             {{ $doctor->status == 1 ? trans('Dashboard/doctor.Enabled') : trans('Dashboard/doctor.Not_enabled') }}
                                         </td>

@@ -55,8 +55,8 @@
                                 @foreach ($sections as $section)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td> <a href="{{route('Sections.show' , $section->id)}}"> {{ $section->name }} </a> </td>
-                                        <td>{{ \Str::limit($section->description, 50) }}</td>
+                                        <td> <a href="{{route('Sections.show' , $section->id)}}"> {{ $section->nameLang }} </a> </td>
+                                        <td>{{ \Str::limit($section->descriptionLang, 50) }}</td>
                                         <td>{{ $section->created_at->diffForHumans() }}</td>
                                         <td>
                                             <a class="modal-effect btn btn-sm btn-info" data-effect="effect-scale"

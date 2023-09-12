@@ -2,18 +2,34 @@
 
 namespace App\Models;
 
-use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Groups extends Model
 {
-    use HasFactory , Translatable;
-    public $translatedAttributes = ['name', 'notes'];
-    public $fillable = ['Total_before_discount', 'discount_value', 'Total_after_discount', 'tax_rate', 'Total_with_tax'];
-   
+    use HasFactory;
+    public $fillable = ['Total_before_discount', 'discount_value', 'Total_after_discount', 'tax_rate', 'Total_with_tax', 'Services_en', 'note_en', 'Services_ar', 'note_ar'];
+
     public function service_group()
     {
-        return $this->belongsToMany(Service::class, 'service_group')->withPivot('quantity');
+        return $this->hasMany(Service_group::class, 'Group_id');
+    }
+
+    public function getNameLangAttribute()
+    {
+        if (app()->getLocale() == 'en') {
+            return $this->Services_en;
+        } else {
+            return $this->Services_ar;
+        }
+    }
+
+    public function getNotesLangAttribute()
+    {
+        if (app()->getLocale() == 'en') {
+            return $this->notes_en;
+        } else {
+            return $this->notes_ar;
+        }
     }
 }

@@ -21,13 +21,21 @@
         <form wire:submit.prevent="saveGroup" autocomplete="off">
             @csrf
             <div class="form-group">
-                <label>{{ trans('Dashboard/Service.Group_Name') }}</label>
-                <input wire:model="name_group" type="text" name="name_group" class="form-control" required>
+                <label>{{ trans('Dashboard/Service.Group_Services_en') }}</label>
+                <input wire:model="Services_en" type="text" name="Services_en" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>{{ trans('Dashboard/Service.Group_Services_ar') }}</label>
+                <input wire:model="Services_ar" type="text" name="Services_ar" class="form-control" required>
             </div>
 
             <div class="form-group">
-                <label>{{ trans('Dashboard/Service.Notes') }}</label>
-                <textarea wire:model="notes" name="notes" class="form-control" rows="5"></textarea>
+                <label>{{ trans('Dashboard/Service.Notes_en') }}</label>
+                <textarea wire:model="notes_en" name="notes_en" class="form-control" rows="5"></textarea>
+            </div>
+            <div class="form-group">
+                <label>{{ trans('Dashboard/Service.Notes_ar') }}</label>
+                <textarea wire:model="notes_ar" name="notes_ar" class="form-control" rows="5"></textarea>
             </div>
 
             <div class="card mt-4">
@@ -59,6 +67,7 @@
                                                 <input type="hidden"
                                                     name="GroupsItems[{{ $index }}][service_id]"
                                                     wire:model="GroupsItems.{{ $index }}.service_id" />
+                                                {{-- {{ dd($groupItem) }} --}}
                                                 @if ($groupItem['service_name'] && $groupItem['service_price'])
                                                     {{ $groupItem['service_name'] }}
                                                     ({{ number_format($groupItem['service_price'], 2) }})
@@ -70,7 +79,7 @@
                                                     <option value="">-- choose product --</option>
                                                     @foreach ($allServices as $service)
                                                         <option value="{{ $service->id }}">
-                                                            {{ \App\Models\ServiceTranslation::where(['Service_id' => $service->id])->pluck('name')->first() }}
+                                                            {{ \App\Models\Service::where(['id' => $service->id])->pluck('name_en')->first() }}
                                                             ({{ number_format($service->price, 2) }})
                                                         </option>
                                                     @endforeach

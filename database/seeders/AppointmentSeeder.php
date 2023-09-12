@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Appointment;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class AppointmentSeeder extends Seeder
 {
@@ -13,19 +12,31 @@ class AppointmentSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('appointments')->delete();
-        $Appointments = [
-            ['name' => 'Saturday'],
-            ['name' => 'Sunday'],
-            ['name' => 'Monday'],
-            ['name' => 'Tuesday'],
-            ['name' => 'Wednesday'],
-            ['name' => 'Thursday'],
-            ['name' => 'Friday'],
-        ];
-        foreach ($Appointments as $Appointment) {
-            Appointment::create($Appointment);
-        }
+        Appointment::create(
+            ['name_ar' => 'السبت', 'name_en' => 'Saturday']
+        );
+
+        Appointment::create(
+            ['name_ar' => 'الأحد', 'name_en' => 'Sunday']
+        );
+
+        Appointment::create(
+            ['name_ar' => 'الإثنين', 'name_en' => 'Monday']
+        );
+
+        Appointment::create(
+            ['name_ar' => 'الثلاثاء', 'name_en' => 'Tuesday']
+        );
+        Appointment::create(
+            ['name_ar' => 'الأربعاء', 'name_en' => 'Wednesday']
+
+        );
+        Appointment::create(
+            ['name_ar' => 'الخميس', 'name_en' => 'Thursday']
+        );
+        Appointment::create(
+            ['name_ar' => 'الجمعة', 'name_en' => 'Friday']
+        );
 
     }
 }

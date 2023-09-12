@@ -19,12 +19,12 @@ class SingleServiceRepository implements SingleServiceRepositoryInterface
         try {
             $SingleService = new Service();
             $SingleService->price = $request->price;
-            $SingleService->description = $request->description;
+            $SingleService->description_en = $request->description_en;
+            $SingleService->description_ar = $request->description_ar;
             $SingleService->status = 1;
-            $SingleService->save();
+            $SingleService->name_en = $request->name_en;
+            $SingleService->name_ar = $request->name_ar;
 
-            // store trans
-            $SingleService->name = $request->name;
             $SingleService->save();
 
             session()->flash('add');
@@ -42,12 +42,12 @@ class SingleServiceRepository implements SingleServiceRepositoryInterface
 
             $SingleService = Service::findOrFail($request->id);
             $SingleService->price = $request->price;
-            $SingleService->description = $request->description;
+            $SingleService->description_en = $request->description_en;
+            $SingleService->description_ar = $request->description_ar;
             $SingleService->status = $request->status;
-            $SingleService->save();
+            $SingleService->name_en = $request->name_en;
+            $SingleService->name_ar = $request->name_ar;
 
-            // store trans
-            $SingleService->name = $request->name;
             $SingleService->save();
 
             session()->flash('edit');

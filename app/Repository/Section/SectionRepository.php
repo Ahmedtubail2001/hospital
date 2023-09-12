@@ -17,8 +17,12 @@ class SectionRepository implements SectionRepositoryInterface
     }
     public function store($request)
     {
+        // dd($request);
         $data = [
-            'en' => ['name' => $request->name],
+            'name_en' => $request->name_en,
+            'name_ar' => $request->name_ar,
+            'description_en' => $request->description_en,
+            'description_ar' => $request->description_ar,
         ];
         $section = ModelsSection::create($data);
         if ($section) {
@@ -33,7 +37,10 @@ class SectionRepository implements SectionRepositoryInterface
     {
         $section = ModelsSection::findOrFail($request->id);
         $section->update([
-            'name' => $request->input('name'),
+            'name_en' => $request->input('name_en'),
+            'name_ar' => $request->input('name_ar'),
+            'description_en' => $request->input('description_en'),
+            'description_ar' => $request->input('description_ar'),
         ]);
         session()->flash('edit');
         return redirect()->route('Sections.index');

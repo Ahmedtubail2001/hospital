@@ -15,9 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('Group_id')->references('id')->on('groups')->onDelete('cascade');
             $table->foreignId('Service_id')->references('id')->on('Services')->onDelete('cascade');
-            // $table->integer('quantity');
+            $table->integer('quantity');
             $table->timestamps();
-
         });
     }
 

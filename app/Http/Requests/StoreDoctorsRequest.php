@@ -27,7 +27,8 @@ class StoreDoctorsRequest extends FormRequest
             "email" => 'required|email|unique:doctors,email,' . $this->id,
             "password" => 'required|sometimes',
             "phone" => 'required|numeric|unique:doctors,phone,' . $this->id,
-            "name" => 'required|regex:/^[A-Za-z0-9-أ-ي-pL\s\-]+$/u',
+            "name_en" => 'required|regex:/^[A-Za-z0-9-أ-ي-pL\s\-]+$/u',
+            "name_ar" => 'required|regex:/^[A-Za-z0-9-أ-ي-pL\s\-]+$/u',
             "appointments" => 'required',
             "section_id" => 'required',
         ];

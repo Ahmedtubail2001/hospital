@@ -2,15 +2,13 @@
 
 namespace App\Models;
 
-use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Doctor extends Model
 {
-    use HasFactory, Translatable;
-    public $translatedAttributes = ['name', 'appointments'];
-    public $fillable = ['email', 'email_verified_id', 'password', 'phone', 'name', 'section_id' , 'status'];
+    use HasFactory;
+    public $fillable = ['email', 'email_verified_id', 'password', 'phone', 'name_en', 'name_ar', 'section_id', 'status'];
 
     public function image()
     {
@@ -21,8 +19,18 @@ class Doctor extends Model
     {
         return $this->belongsTo(Section::class);
     }
-        public function  doctorappointments()
+    public function doctorappointments()
     {
-        return $this->belongsToMany(Appointment::class,'appointment_doctor');
+        return $this->belongsToMany(Appointment::class, 'appointment_doctor');
+    }
+
+    public function getNameLangAttribute()
+    {
+        if (app()->getLocale() == 'en') {
+            return $this->name_en;
+        } else {
+            return $this->name_ar;
+        }
+
     }
 }

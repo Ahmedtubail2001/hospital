@@ -54,7 +54,7 @@
                                     </th>
                                     <th class="wd-20p border-bottom-0">{{ trans('Dashboard/doctor.appointments') }}
                                     </th>
-                                    <th class="wd-20p border-bottom-0">{{ trans('Dashboard/doctor.price') }}
+                                    {{-- <th class="wd-20p border-bottom-0">{{ trans('Dashboard/doctor.price') }} --}}
                                     </th>
                                     <th class="wd-20p border-bottom-0">{{ trans('Dashboard/doctor.Status') }}
                                     </th>
@@ -69,8 +69,8 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
-                                            <input type="checkbox" name="delete_select" value="{{ $doctor->id }}"
-                                                class="delete_select">
+                                            <input type="checkbox" name="delete_select" id="delete_select_check"
+                                                value="{{ $doctor->id }}" class="delete_select">
                                         </td>
                                         <td>
                                             @if ($doctor->image)
@@ -81,18 +81,20 @@
                                                     height="50px" width="50px" alt="">
                                             @endif
                                         </td>
-                                        <td>{{ $doctor->name }}</td>
+                                        <td>{{ $doctor->nameLang }}</td>
                                         <td>{{ $doctor->email }}</td>
-                                        <td>{{ $doctor->section->name }}</td>
+                                        <td>{{ $doctor->section->nameLang }}</td>
                                         <td>{{ $doctor->phone }}</td>
                                         <td>
-                                        
-                                            @foreach ($doctor->doctorappointments as $appointments )
-                                                {{$appointments->name}}
+
+                                            @foreach ($doctor->doctorappointments as $appointments)
+                                                <span class="badge badge-primary p-1">
+                                                    {{ $appointments->nameLang }}
+                                                </span>
                                             @endforeach
-                                        
+
                                         </td>
-                                        <td>{{ $doctor->price }}</td>
+                                        {{-- <td>{{ $doctor->price }}</td> --}}
                                         <td>
                                             <div
                                                 class="dot-label bg-{{ $doctor->status == 1 ? 'success' : 'danger' }} ml-1">
@@ -116,8 +118,8 @@
                                                     <a class="dropdown-item" href="#" data-toggle="modal"
                                                         data-target="#update_password{{ $doctor->id }}"><i
                                                             class="text-primary ti-key"></i>&nbsp;&nbsp;{{ trans('Dashboard/doctor.change_password') }}</a>
-                                                    
-                                                            <a class="dropdown-item" href="#" data-toggle="modal"
+
+                                                    <a class="dropdown-item" href="#" data-toggle="modal"
                                                         data-target="#update_status{{ $doctor->id }}"><i
                                                             class="text-warning ti-back-right"></i>&nbsp;&nbsp;
                                                         {{ trans('Dashboard/doctor.Status_change') }}</a>
@@ -163,14 +165,13 @@
         })
     </script>
 
-    <script type="text/javascript">
+    <script>
         $(function() {
             $("#btn_delete_all").click(function() {
                 var selected = [];
-                $("#example input[name=delete_select]:checked").each(function() {
+                $("input[id=delete_select_check]:checked").each(function() {
                     selected.push(this.value);
                 });
-
                 if (selected.length > 0) {
                     $('#delete_select').modal('show')
                     $('input[id="delete_select_id"]').val(selected);

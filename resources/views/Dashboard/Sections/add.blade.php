@@ -3,7 +3,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{trans('Dashboard/sections_trans.add_sections')}}</h5>
+                <h5 class="modal-title" id="exampleModalLabel">{{ trans('Dashboard/sections_trans.add_sections') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -11,12 +11,34 @@
             <form action="{{ route('Sections.store') }}" method="post" autocomplete="off">
                 @csrf
                 <div class="modal-body">
-                    <label for="exampleInputPassword1">{{trans('Dashboard/sections_trans.name_sections')}}</label>
-                    <input type="text" name="name" class="form-control">
+                    <label for="exampleInputPassword1">{{ trans('Dashboard/sections_trans.name_sections_en') }}</label>
+                    <input type="text" name="name_en" class="form-control">
                 </div>
+
+                <div class="modal-body">
+                    <label for="exampleInputPassword1">{{ trans('Dashboard/sections_trans.name_sections_ar') }}</label>
+                    <input type="text" name="name_ar" class="form-control">
+                </div>
+
+
+                <div class="modal-body">
+                    <label for="exampleInputPassword1">{{ trans('Dashboard/sections_trans.description_en') }}</label>
+                    <input type="text" name="description_en" class="form-control">
+                </div>
+
+
+                <div class="modal-body">
+                    <label for="exampleInputPassword1">{{ trans('Dashboard/sections_trans.description_ar') }}</label>
+                    <input type="text" name="description_ar" class="form-control">
+                </div>
+
+
+
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('Dashboard/sections_trans.Close')}}</button>
-                    <button type="submit" class="btn btn-primary">{{trans('Dashboard/sections_trans.submit')}}</button>
+                    <button type="button" class="btn btn-secondary"
+                        data-dismiss="modal">{{ trans('Dashboard/sections_trans.Close') }}</button>
+                    <button type="submit"
+                        class="btn btn-primary">{{ trans('Dashboard/sections_trans.submit') }}</button>
                 </div>
             </form>
         </div>

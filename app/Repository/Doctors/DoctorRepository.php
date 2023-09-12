@@ -27,6 +27,7 @@ class DoctorRepository implements DoctorRepositoryInterface
         $appointments = Appointment::all();
         return view('Dashboard.Doctors.add', compact('sections', 'appointments'));
     }
+
     public function store($request)
     {
         DB::beginTransaction();
@@ -39,22 +40,17 @@ class DoctorRepository implements DoctorRepositoryInterface
             $doctors->section_id = $request->section_id;
             $doctors->phone = $request->phone;
             $doctors->status = 1;
+            $doctors->name_en = $request->name_en;
+            $doctors->name_ar = $request->name_ar;
             $doctors->save();
-            // dd($doctors);
+            $doctors->doctorappointments()->sync($request->appointments);
 
-            // store trans
-            $doctors->name = $request->name;
-            $doctors->save();
-            // dd($doctors);
-
-            // $doctors->doctorappointments()->attach( $request->appointments);
-            
             //Upload img
             $this->verifyAndStoreImage($request, 'photo', 'doctors', 'upload_image', $doctors->id, 'App\Models\Doctor');
 
             DB::commit();
             session()->flash('add');
-            return redirect()->route('Doctors.create');
+            return redirect()->route('Doctors.index');
 
         } catch (\Exception $e) {
             DB::rollback();
@@ -88,6 +84,7 @@ class DoctorRepository implements DoctorRepositoryInterface
             return redirect()->route('Doctors.index');
         }
     }
+
     public function edit($id)
     {
         $sections = Section::all();
@@ -95,21 +92,20 @@ class DoctorRepository implements DoctorRepositoryInterface
         $doctor = Doctor::findorfail($id);
         return view('Dashboard.Doctors.edit', compact('sections', 'appointments', 'doctor'));
     }
+
     public function update($request)
     {
         DB::beginTransaction();
         try {
 
             $doctor = Doctor::findorfail($request->id);
-
             $doctor->email = $request->email;
             $doctor->password = Hash::make($request->password);
             $doctor->section_id = $request->section_id;
             $doctor->phone = $request->phone;
             $doctor->status = 1;
-            $doctor->save();
-            // store trans
-            $doctor->name = $request->name;
+            $doctor->name_en = $request->name_en;
+            $doctor->name_ar = $request->name_ar;
             $doctor->save();
 
             // update pivot tABLE
@@ -128,7 +124,7 @@ class DoctorRepository implements DoctorRepositoryInterface
 
             DB::commit();
             session()->flash('edit');
-            return redirect()->back();
+            return redirect()->route('Doctors.index');
 
         } catch (\Exception $e) {
             DB::rollback();
@@ -142,8 +138,6 @@ class DoctorRepository implements DoctorRepositoryInterface
             $doctor = Doctor::findorfail($request->id);
             $doctor->update([
                 'password' => Hash::make($request->password),
-                // 'password' => $request->password,
-
             ]);
 
             session()->flash('edit');
@@ -152,6 +146,7 @@ class DoctorRepository implements DoctorRepositoryInterface
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
+    
     public function update_status($request)
     {
         try {
@@ -166,6 +161,7 @@ class DoctorRepository implements DoctorRepositoryInterface
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
+    
     public function Show($id)
     {
         $doctors = Section::findorfail($id)->doctor;

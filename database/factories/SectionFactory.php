@@ -18,8 +18,10 @@ class SectionFactory extends Factory
     {
         return [
             //
-            'name' => $this->faker->unique()->randomElement(['Department of Surgery ', 'Orthopedic department', 'Operations department', 'Department of brain and nerves ', 'x_ray place ']),
-            'description'=> $this->faker->paragraph(),
+            'name_en' => $this->faker->unique()->randomElement(['Department of Surgery ', 'Orthopedic department', 'Operations department', 'Department of brain and nerves ', 'x_ray place ']),
+            'name_ar' => $this->faker->unique()->randomElement(['قسم الجراحة ', 'قسم العظام', 'قسم العمليات', 'قسم المخ والأعصاب ', ' قسم الأشعة السينية']),
+            'description_en' => $this->faker->paragraph(),
+            'description_ar' => $this->faker->paragraph(),
         ];
     }
 }

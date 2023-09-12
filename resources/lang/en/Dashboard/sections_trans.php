@@ -14,4 +14,8 @@ return [
     'sections' => 'sections',
     'view_all' => ' view all ',
     'description' => ' description',
+    'description_en' => 'Description En',
+    'description_ar' => ' Description AR',
+    'name_sections_en' => 'Name Sections EN',
+    'name_sections_ar' => 'Name Sections AR',
 ];

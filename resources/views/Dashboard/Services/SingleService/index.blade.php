@@ -53,7 +53,7 @@
                                 @foreach ($services as $service)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $service->name}}</td>
+                                        <td>{{ $service->nameLang }}</td>
                                         <td>{{ $service->price }}</td>
                                         <td>
                                             <div
@@ -61,7 +61,7 @@
                                             </div>
                                             {{ $service->status == 1 ? trans('Dashboard/doctor.Enabled') : trans('Dashboard/doctor.Not_enabled') }}
                                         </td>
-                                        <td> {{ Str::limit($service->description, 50) }}</td>
+                                        <td> {{ Str::limit($service->descriptionLang, 50) }}</td>
                                         <td>{{ $service->created_at->diffForHumans() }}</td>
                                         <td>
                                             <a class="modal-effect btn btn-sm btn-info" data-effect="effect-scale"

@@ -12,12 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('doctors', function (Blueprint $table) {
-$table->id();
+            $table->id();
             $table->string('email')->unique();
             $table->timestamp('email_verified_id')->nullable();
             $table->string('password');
             $table->foreignId('section_id')->references('id')->on('sections')->onDelete('cascade');
             $table->string('phone');
+            $table->string('name_en')->nullable();
+            $table->string('name_ar')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

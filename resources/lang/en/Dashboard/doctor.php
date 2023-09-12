@@ -3,6 +3,8 @@
 return [
 
     'name' => 'Doctor Name',
+    'name_ar' => ' Doctor Name Ar',
+    'name_en' => ' Doctor Name EN',
     'email' => ' Email',
     'section' => ' Section',
     'phone' => ' Phone',
