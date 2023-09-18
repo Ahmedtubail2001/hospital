@@ -48,6 +48,7 @@ class SingleServiceRepository implements SingleServiceRepositoryInterface
             $SingleService->name_en = $request->name_en;
             $SingleService->name_ar = $request->name_ar;
 
+
             $SingleService->save();
 
             session()->flash('edit');
@@ -55,6 +56,8 @@ class SingleServiceRepository implements SingleServiceRepositoryInterface
 
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+            // dd($SingleService);
+
         }
 
     }

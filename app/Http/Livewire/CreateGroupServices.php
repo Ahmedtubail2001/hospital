@@ -95,7 +95,6 @@ class CreateGroupServices extends Component
 
     public function saveGroup()
     {
-        // update
         if ($this->updateMode) {
             $Groups = Groups::find($this->group_id);
             $total = 0;
@@ -162,7 +161,7 @@ class CreateGroupServices extends Component
             $Groups->tax_rate = $this->taxes;
             // الاجمالي + الضريبة
             $Groups->Total_with_tax = $Groups->Total_after_discount * (1 + (is_numeric($this->taxes) ? $this->taxes : 0) / 100);
-            // حفظ الترجمة
+
             $Groups->Services_en = $this->Services_en;
             $Groups->Services_ar = $this->Services_ar;
             $Groups->notes_en = $this->notes_en;
@@ -180,7 +179,6 @@ class CreateGroupServices extends Component
                     ]
                 );
             }
-
             $this->reset('GroupsItems', 'Services_en', 'Services_ar', 'notes_en', 'notes_en');
             $this->discount_value = 0;
             $this->ServiceSaved = true;
@@ -201,7 +199,7 @@ class CreateGroupServices extends Component
         $group = Groups::where('id', $id)->first();
         $this->group_id = $id;
 
-        $this->reset('GroupsItems', 'Services_en', 'Services_ar', 'notes_en', 'notes_en');
+        $this->reset('GroupsItems', 'Services_en', 'Services_ar', 'notes_ar', 'notes_en');
         $this->Services_en = $group->Services_en;
         $this->Services_ar = $group->Services_ar;
         $this->notes_en = $group->notes_en;

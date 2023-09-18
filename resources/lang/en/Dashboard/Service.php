@@ -42,4 +42,5 @@ return [
     'Data_Confirmation' => 'Data Confirmation',
     'Group_Name' => 'Group Name',
     'edit_Service' => 'Edit Service',
+    'patients' => 'patients',
 ];

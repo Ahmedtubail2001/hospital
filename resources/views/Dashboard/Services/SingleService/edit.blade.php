@@ -35,7 +35,7 @@
 
                     <div class="modal-body">
                         <label for="exampleInputPassword1">{{ trans('Dashboard/Service.description_ar') }}</label>
-                        <input type="text" name="description_en" class="form-control"
+                        <input type="text" name="description_ar" class="form-control"
                             value="{{ $service->description_ar }}">
                     </div>
 

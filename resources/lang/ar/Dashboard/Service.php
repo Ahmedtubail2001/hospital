@@ -41,4 +41,5 @@ return [
     'Data_Confirmation' => 'تاكيد البيانات',
     'Group_Name' => 'اسم المجموعة',
     'edit_Service' => 'تعديل الخدمة',
+    'patients' => 'المرضى',
 ];

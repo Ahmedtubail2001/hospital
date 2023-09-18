@@ -79,7 +79,7 @@
                                                     <option value="">-- choose product --</option>
                                                     @foreach ($allServices as $service)
                                                         <option value="{{ $service->id }}">
-                                                            {{ \App\Models\Service::where(['id' => $service->id])->pluck('name_en')->first() }}
+                                                            {{ \App\Models\service::where(['id' => $service->id])->pluck('name_en')->first() }}
                                                             ({{ number_format($service->price, 2) }})
                                                         </option>
                                                     @endforeach

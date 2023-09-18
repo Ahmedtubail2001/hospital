@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Service extends Model
+class patient extends Model
 {
     use HasFactory;
-    protected $fillable = ['price', 'description_en', 'description_ar', 'status', 'name_en', 'name_ar'];
+    public $fillable = ['email', 'Password', 'Date_Birth', 'Phone', 'Gender', 'Blood_Group', 'name_en', 'Address_en', 'name_ar', 'Address_ar'];
 
     public function getNameLangAttribute()
     {
@@ -19,14 +19,12 @@ class Service extends Model
         }
     }
 
-    public function getDescriptionLangAttribute()
+    public function getAddressLangAttribute()
     {
         if (app()->getLocale() == 'en') {
-            return $this->description_en;
+            return $this->Address_en;
         } else {
-            return $this->description_ar;
+            return $this->Address_ar;
         }
-
     }
-
 }
