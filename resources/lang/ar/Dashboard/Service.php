@@ -40,6 +40,7 @@ return [
     'Total_With_Tax' => 'الاجمالي مع الضريبة',
     'Data_Confirmation' => 'تاكيد البيانات',
     'Group_Name' => 'اسم المجموعة',
+    'Invoices' => 'الفواتير',
     'edit_Service' => 'تعديل الخدمة',
     'patients' => 'المرضى',
 ];

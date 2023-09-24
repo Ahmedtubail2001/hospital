@@ -37,9 +37,7 @@ class AmbulanceRepository implements AmbulanceRepositoryInterface
             $ambulances->save();
 
             session()->flash('add');
-            return redirect()->back();
             return redirect()->route('Ambulance.index');
-
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }

@@ -5,6 +5,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\DoctorController;
 use App\Http\Controllers\Dashboard\InsuranceController;
 use App\Http\Controllers\Dashboard\PatientController;
+use App\Http\Controllers\Dashboard\ReceiptAccountController;
 use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\Dashboard\SingleServiceController;
 use App\Http\Controllers\ProfileController;
@@ -23,10 +24,12 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
  */
 
 // Route::get('/', function () {
-//     return view('Dashboard.index');
+//     return view('login');
 // });
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+// Route::get('/dashboard', [DashboardController::class, 'index']);
+// Route::get('/Dashboard_Admin', [DashboardController::class, 'index']);
+
 
 Route::group(
     [
@@ -61,8 +64,10 @@ Route::group(
             Route::resource('insurance', InsuranceController::class);
             Route::resource('Ambulance', AmbulanceController::class);
             Route::resource('Patients', PatientController::class);
+            Route::resource('Receipt', ReceiptAccountController::class);
 
             Route::view('Add_GroupServices', 'livewire.GroupServices.include_create')->name('Add_GroupServices');
+            Route::view('single_invoices', 'livewire.single_invoices.index')->name('single_invoices');
 
         });
 

@@ -32,7 +32,7 @@ return [
     "notes_ar" => 'الملاحظات بالعربية',
     "notes_en" => 'الملاحظات بالإنجليزية',
     "driver_name_en" => 'إسم السائق بالإنجليزية',
-    "driver_name_er" => 'إسم السائق بالعربية',
+    "driver_name_ar" => 'إسم السائق بالعربية',
     "Enabled" => 'مفعل',
     "Not_enabled" => 'غير مفعل',
     "Delete_ambulance_data" => 'حذف بيانات سيارة الإسعاف',

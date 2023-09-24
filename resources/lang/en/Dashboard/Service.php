@@ -41,6 +41,7 @@ return [
     'Total_With_Tax' => 'Total With Tax',
     'Data_Confirmation' => 'Data Confirmation',
     'Group_Name' => 'Group Name',
+    'Invoices' => 'Invoices',
     'edit_Service' => 'Edit Service',
     'patients' => 'patients',
 ];

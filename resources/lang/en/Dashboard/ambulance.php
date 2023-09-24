@@ -32,7 +32,7 @@ return [
     "notes_ar" => 'Notes Ar',
     "notes_en" => 'Notes En',
     "driver_name_en" => 'Driver Name En',
-    "driver_name_er" => 'Driver name Ar',
+    "driver_name_ar" => 'Driver name Ar',
     "Enabled" => 'Enabled',
     "Not_enabled" => 'Not Enabled',
     "Delete_ambulance_data" => 'Delete Ambulance Data',

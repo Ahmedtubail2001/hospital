@@ -15,6 +15,7 @@ class SingleServiceController extends Controller
     {
         $this->SingleServices = $SingleServices;
     }
+
     public function index()
     {
         //

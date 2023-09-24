@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sections', function (Blueprint $table) {
+        Schema::create('receipt_accounts', function (Blueprint $table) {
             $table->id();
-            $table->string('name_en')->nullable();
-            $table->string('name_ar')->nullable();
-            $table->text('description_en')->nullable();
-            $table->text('description_ar')->nullable();
-
+            $table->date('date');
+            $table->foreignId('patient_id')->references('id')->on('patients')->onDelete('cascade');
+            $table->decimal('Debit', 8, 2)->nullable();
+            $table->string('description_en');
+            $table->string('description_ar');
             $table->timestamps();
+
         });
     }
 
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sections');
+        Schema::dropIfExists('receipt_accounts');
     }
 };

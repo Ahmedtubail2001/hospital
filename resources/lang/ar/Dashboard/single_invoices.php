@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'Single_Service_Invoices' => 'فاتورة خدمة مفردة',
+    'Invoices' => 'الفواتير',
+    'data_saved' => 'تم حفظ البيانات بنجاح',
+    'data_edit' => 'تم تعديل البيانات بنجاح',
+    'Invoice_type' => 'نوع الفاتورة',
+    'monetary' => 'نقدي',
+    'Late_payment' => 'دفع متأخر',
+    'Service_name' => 'اسم الخدمة',
+    'Service_price' => 'سعر الخدمة',
+    'discount_value' => 'قيمة الخصم',
+    'Tax_rate' => 'نسبة الضريبة',
+    'Tax_value' => 'قيمة الضريبة',
+    'Total_with_tax' => 'الاجمالي مع الضريبة',
+    'Choose_list' => 'اختار من القائمة',
+    'Choose_a_service' => 'اختر خدمة',
+    'Confirm_data' => 'تأكيد البيانات',
+    'Patient_name' => 'اسم المريض',
+    'doctor_name' => 'اسم الدكتور',
+    'Section' => 'القسم',
+    'Invoice_date' => 'تاريخ الفاتورة',
+    'Processes' => 'العمليات',
+    'Add_new_invoice' => 'اضافة فاتورة جديدة',
+];

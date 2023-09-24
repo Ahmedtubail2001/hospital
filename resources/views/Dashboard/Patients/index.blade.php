@@ -1,7 +1,9 @@
 @extends('Dashboard.layouts.master')
+
 @section('css')
     <link href="{{ URL::asset('dashboard/plugins/notify/css/notifIt.css') }}" rel="stylesheet" />
 @endsection
+
 @section('page-header')
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
@@ -14,6 +16,7 @@
     </div>
     <!-- breadcrumb -->
 @endsection
+
 @section('content')
     @include('Dashboard.messages_alert')
     <!-- row opened -->
@@ -63,9 +66,11 @@
                                         <td>
                                             <a href="{{ route('Patients.edit', $Patient->id) }}"
                                                 class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
+
                                             <button class="btn btn-sm btn-danger" data-toggle="modal"
                                                 data-target="#Deleted{{ $Patient->id }}"><i
                                                     class="fas fa-trash"></i></button>
+
                                             <a href="{{ route('Patients.show', $Patient->id) }}"
                                                 class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
 
@@ -82,10 +87,6 @@
         <!--/div-->
     </div>
     <!-- /row -->
-    </div>
-    <!-- Container closed -->
-    </div>
-    <!-- main-content closed -->
 @endsection
 @section('js')
     <!-- Internal Data tables -->
@@ -110,4 +111,5 @@
 
     <script src="{{ URL::asset('Dashboard/plugins/notify/js/notifIt.js') }}"></script>
     <script src="{{ URL::asset('Dashboard/plugins/notify/js/notifit-custom.js') }}"></script>
+
 @endsection

@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'Single_Service_Invoices' => 'Single Service Invoices',
+    'Invoices' => 'Invoices',
+    'data_saved' => 'The data has been saved successfully',
+    'data_edit' => 'The data has been edit successfully',
+    'Invoice_type' => 'Invoice Type',
+    'monetary' => 'Monetary',
+    'Late_payment' => 'Late Payment',
+    'Service_name' => 'Service Name',
+    'Service_price' => 'Service Price',
+    'discount_value' => 'Discount Value',
+    'Tax_rate' => 'Tax Rate',
+    'Tax_value' => 'Tax Value',
+    'Total_with_tax' => 'Total With Tax',
+    'Choose_list' => 'Choose from the list',
+    'Choose_a_service' => 'Choose Service',
+    'Confirm_data' => 'Confirm Data',
+    'Patient_name' => 'Patient Name',
+    'doctor_name' => 'Doctor Name',
+    'Section' => 'Section',
+    'Invoice_date' => 'Invoice Date',
+    'Processes' => 'Processes',
+    'Add_new_invoice' => 'Add New Invoice',
+];

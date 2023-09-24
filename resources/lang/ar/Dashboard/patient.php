@@ -26,7 +26,7 @@ return [
     "Processes" => 'العمليات',
     "Add_new_patient" => 'اضافة مريض جديد',
     "Patient_name_en" => 'اسم المريض بالإنجليزية',
-    "Patient_name_ar" => 'اسم المريض بالإنجليزيةبالعربية',
+    "Patient_name_ar" => 'اسم المريض بالعربية',
     "Choose" => 'اختار من القائمة ',
     "male" => 'ذكر',
     "female" => 'انثي',

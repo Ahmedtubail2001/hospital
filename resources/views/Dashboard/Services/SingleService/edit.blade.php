@@ -44,6 +44,7 @@
                         <input type="number" name="price" id="price" class="form-control"
                             value="{{ $service->price }}">
                     </div>
+
                     <div class="form-group modal-body">
                         <label for="status">{{ trans('Dashboard/Service.Status') }}</label>
                         <select class="form-control" id="status" name="status" required>
@@ -54,6 +55,7 @@
                             <option value="0">{{ trans('Dashboard/doctor.Not_enabled') }}</option>
                         </select>
                     </div>
+                    
                 </div>
 
                 <div class="modal-footer">
