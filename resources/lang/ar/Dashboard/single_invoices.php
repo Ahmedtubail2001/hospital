@@ -23,4 +23,9 @@ return [
     'Invoice_date' => 'تاريخ الفاتورة',
     'Processes' => 'العمليات',
     'Add_new_invoice' => 'اضافة فاتورة جديدة',
+    'Print_invoices' =>'طباعه الفواتير',
+    'Engineers' =>'المهندسين',
+    'Invoice_information' =>'معلومات الفاتوره',
+    'Total' =>'الاجمالي',
+    'Print' =>'طباعه',
 ];

@@ -12,9 +12,8 @@ return [
     | these language lines according to your application's requirements.
     |
      */
-    "Accounts" => 'الحسابات',
-    "Catch_Receipt" => 'سند قبض',
-    "Catch_Payment" => 'سند صرف',
+    "Accounts" => 'Accounts',
+    "Catch_Receipt" => 'Catch Receipt',
     "" => '',
     "" => '',
     "" => '',

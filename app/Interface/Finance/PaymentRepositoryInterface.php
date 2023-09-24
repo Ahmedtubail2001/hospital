@@ -2,7 +2,7 @@
 
 namespace App\Interface\Finance;
 
-interface ReceiptRepositoryInterface
+interface PaymentRepositoryInterface
 {
     public function index();
 

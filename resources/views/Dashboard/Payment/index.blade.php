@@ -1,6 +1,6 @@
 @extends('Dashboard.layouts.master')
 @section('title')
-    {{ trans('Dashboard/Receipt.Catch_Receipt') }}
+    {{ trans('Dashboard/Payment.Catch_Payment') }}
 @stop
 @section('css')
     <!-- Internal Data table css -->
@@ -22,8 +22,10 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">{{ trans('Dashboard/Receipt.Accounts') }}
-                </h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ {{ trans('Dashboard/Receipt.Catch_Receipt') }}</span>
+                <h4 class="content-title mb-0 my-auto">{{ trans('Dashboard/Payment.accounts') }}
+                </h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
+                    {{ trans('Dashboard/Payment.Catch_Payment') }}
+                </span>
             </div>
         </div>
     </div>
@@ -38,8 +40,9 @@
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                        <a href="{{ route('Receipt.create') }}" class="btn btn-primary" role="button"
-                            aria-pressed="true"> {{ trans('Dashboard/Receipt.Add_New_Receipt') }}</a>
+                        <a href="{{ route('Payment.create') }}" class="btn btn-primary" role="button" aria-pressed="true">
+                            {{ trans('Dashboard/Payment.Add_new_Catch_Payment') }}
+                        </a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -48,34 +51,34 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th> {{ trans('Dashboard/Receipt.Patient_Name') }}</th>
-                                    <th> {{ trans('Dashboard/Receipt.amount') }}</th>
-                                    <th> {{ trans('Dashboard/Receipt.Description') }}</th>
-                                    <th> {{ trans('Dashboard/Receipt.Date_added') }}</th>
-                                    <th> {{ trans('Dashboard/Receipt.Processes') }}</th>
+                                    <th>{{ trans('Dashboard/Payment.Patient_name') }}</th>
+                                    <th>{{ trans('Dashboard/Payment.amount') }}</th>
+                                    <th>{{ trans('Dashboard/Payment.Description') }}</th>
+                                    <th> {{ trans('Dashboard/Payment.Date_added') }}</th>
+                                    <th> {{ trans('Dashboard/Payment.Processes') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($receipts as $receipt)
+                                @foreach ($payments as $payment)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $receipt->patients->NameLang }}</td>
-                                        <td>{{ number_format($receipt->amount, 2) }}</td>
-                                        <td>{{ \Str::limit($receipt->descriptionLang, 50) }}</td>
-                                        <td>{{ $receipt->created_at->diffForHumans() }}</td>
+                                        <td>{{ $payment->patients->NameLang }}</td>
+                                        <td>{{ number_format($payment->amount, 2) }}</td>
+                                        <td>{{ \Str::limit($payment->descriptionLang, 50) }}</td>
+                                        <td>{{ $payment->created_at->diffForHumans() }}</td>
                                         <td>
-                                            <a href="{{ route('Receipt.edit', $receipt->id) }}"
+                                            <a href="{{ route('Payment.edit', $payment->id) }}"
                                                 class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
                                             <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
-                                                data-toggle="modal" href="#delete{{ $receipt->id }}"><i
+                                                data-toggle="modal" href="#delete{{ $payment->id }}"><i
                                                     class="las la-trash"></i></a>
-                                            <a href="{{ route('Receipt.show', $receipt->id) }}"
-                                                class="btn btn-primary btn-sm" target="_blank" title="طباعه سند قبض"><i
+                                            <a href="{{ route('Payment.show', $payment->id) }}"
+                                                class="btn btn-primary btn-sm" target="_blank" title="طباعه سند صرف"><i
                                                     class="fas fa-print"></i></a>
 
                                         </td>
                                     </tr>
-                                    @include('Dashboard.Receipt.delete')
+                                    @include('Dashboard.Payment.delete')
                                 @endforeach
                             </tbody>
                         </table>

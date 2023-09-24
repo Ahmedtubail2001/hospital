@@ -166,6 +166,9 @@
                     <li><a class="slide-item"
                             href="{{ route('Receipt.index') }}">{{ trans('Dashboard/accounts.Catch_Receipt') }}</a>
                     </li>
+                    <li><a class="slide-item"
+                            href="{{ route('Payment.index') }}">{{ trans('Dashboard/Payment.Catch_Payment') }}</a>
+                    </li>
                 </ul>
             </li>
 

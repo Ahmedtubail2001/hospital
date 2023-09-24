@@ -6,15 +6,16 @@
 @endsection
 
 @section('title')
-    {{ trans('Dashboard/Receipt.Add_New_Receipt') }}
+     {{ trans('Dashboard/Payment.Edit_Catch_Payment') }}
 @stop
 @section('page-header')
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto"> {{ trans('Dashboard/Receipt.Accounts') }}
-                </h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ {{ trans('Dashboard/Receipt.Add_New_Receipt') }}</span>
+                <h4 class="content-title mb-0 my-auto">{{ trans('Dashboard/Payment.accounts') }}
+                    </h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ 
+                        {{ trans('Dashboard/Payment.Edit_Catch_Payment') }} </span>
             </div>
         </div>
     </div>
@@ -28,20 +29,24 @@
         <div class="col-lg-12 col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('Receipt.store') }}" method="post" autocomplete="off"
-                        enctype="multipart/form-data">
+                    <form action="{{ route('Payment.update', 'test') }}" method="post" autocomplete="off">
+                        {{ method_field('patch') }}
                         {{ csrf_field() }}
                         <div class="pd-30 pd-sm-40 bg-gray-200">
 
                             <div class="row row-xs align-items-center mg-b-20">
                                 <div class="col-md-1">
-                                    <label> {{ trans('Dashboard/Receipt.Patient_Name') }}</label>
+                                    <label> {{ trans('Dashboard/Payment.Patient_name') }}</label>
+                                    <input class="form-control" value="{{ $payment_accounts->id }}" name="id"
+                                        type="hidden">
+
                                 </div>
                                 <div class="col-md-11 mg-t-5 mg-md-t-0">
                                     <select name="patient_id" class="form-control select2" required>
                                         @foreach ($Patients as $Patient)
-                                            <option value=""></option>
-                                            <option value="{{ $Patient->id }}">{{ $Patient->NameLang }}</option>
+                                            <option value="{{ $Patient->id }}"
+                                                {{ $payment_accounts->patient_id == $Patient->id ? 'selected' : '' }}>
+                                                {{ $Patient->NameLang }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -49,33 +54,33 @@
 
                             <div class="row row-xs align-items-center mg-b-20">
                                 <div class="col-md-1">
-                                    <label> {{ trans('Dashboard/Receipt.amount') }}</label>
+                                    <label>{{ trans('Dashboard/Payment.amount') }}</label>
                                 </div>
                                 <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                    <input class="form-control" name="Debit" type="number">
+                                    <input class="form-control" value="{{ $payment_accounts->amount }}" name="credit"
+                                        type="number">
                                 </div>
                             </div>
 
                             <div class="row row-xs align-items-center mg-b-20">
                                 <div class="col-md-1">
-                                    <label> {{ trans('Dashboard/Receipt.Description_En') }}</label>
+                                    <label> {{ trans('Dashboard/Payment.Description_En') }}</label>
                                 </div>
                                 <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                    <textarea class="form-control" name="description_en" rows="3"></textarea>
+                                    <textarea class="form-control" name="description_en" rows="3">{{ $payment_accounts->description_en }}</textarea>
                                 </div>
                             </div>
 
                             <div class="row row-xs align-items-center mg-b-20">
                                 <div class="col-md-1">
-                                    <label>{{ trans('Dashboard/Receipt.Description_Ar') }}</label>
+                                    <label> {{ trans('Dashboard/Payment.Description_Ar') }}</label>
                                 </div>
                                 <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                    <textarea class="form-control" name="description_ar" rows="3"></textarea>
+                                    <textarea class="form-control" name="description_ar" rows="3">{{ $payment_accounts->description_ar }}</textarea>
                                 </div>
                             </div>
-
                             <button type="submit"
-                                class="btn btn-main-primary pd-x-30 mg-r-5 mg-t-5">{{ trans('Dashboard/Receipt.submit') }}</button>
+                                class="btn btn-main-primary pd-x-30 mg-r-5 mg-t-5">{{ trans('Dashboard/Payment.submit') }}</button>
                         </div>
                     </form>
                 </div>

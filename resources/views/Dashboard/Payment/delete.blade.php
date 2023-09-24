@@ -1,30 +1,31 @@
 <!-- Modal -->
-<div class="modal fade" id="delete{{ $receipt->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="delete{{ $payment->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"> {{trans('Dashboard/Receipt.Deleted')}}</h5>
+                <h5 class="modal-title" id="exampleModalLabel"> 
+                    {{trans('Dashboard/Payment.Deleted')}}
+                </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('Receipt.destroy', 'test') }}" method="post">
+            <form action="{{ route('Payment.destroy', 'test') }}" method="post">
                 {{ method_field('delete') }}
                 {{ csrf_field() }}
             <div class="modal-body">
-                <input type="hidden" name="id" value="{{ $receipt->id }}">
-                <h5>{{trans('Dashboard/sections_trans.Warning')}}<span style="color: red"> {{ $receipt->patients->namelang }}</span></h5>
+                <input type="hidden" name="id" value="{{ $payment->id }}">
+                <h5>{{trans('Dashboard/sections_trans.Warning')}}<span style="color: red"> {{ $payment->patients->namelang }}</span></h5>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('Dashboard/Receipt.Close')}}</button>
-                <button type="submit" class="btn btn-danger">{{trans('Dashboard/Receipt.Delete')}}</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('Dashboard/Payment.Close')}}</button>
+                <button type="submit" class="btn btn-danger">{{trans('Dashboard/Payment.Delete')}}</button>
             </div>
             </form>
         </div>
     </div>
 </div>
-
 @section('js')
     <!-- Internal Data tables -->
     <script src="{{ URL::asset('Dashboard/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>

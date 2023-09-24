@@ -23,4 +23,10 @@ return [
     'Invoice_date' => 'Invoice Date',
     'Processes' => 'Processes',
     'Add_new_invoice' => 'Add New Invoice',
+    'Print_invoices' => 'Print Invoices',
+    'Engineers' => 'Engineers',
+    'Invoice_information' => 'Invoice Information',
+    'Total' => 'Total',
+    'Print' => 'Print',
+
 ];
