@@ -11,9 +11,9 @@ class ReceiptAccount extends Model
 
     public function patients()
     {
-        return $this->belongsTo(patient::class,'patient_id');
+        return $this->belongsTo(patient::class, 'patient_id');
     }
-    
+
     public function getDescriptionLangAttribute()
     {
         if (app()->getLocale() == 'en') {

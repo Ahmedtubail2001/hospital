@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AdminController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -14,15 +15,13 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
  */
 
-
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
     ], function () {
 
-        Route::get('/', function () {
-            return view('welcome');
-        });
+        Route::get('/', [AdminController::class, 'showLogin'])
+            ->middleware('auth', 'verified')->name('login.user');
 
     });

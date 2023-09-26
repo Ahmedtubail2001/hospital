@@ -22,7 +22,6 @@ return [
     "Description" => 'الوصف ',
     "Close" => 'إغلاق',
     "submit" => 'تأكيد',
-    // "Delete_Catch_Paym " => 'حذف سند صرف',
     "Deleted" => 'حذف سند صرف',
     "Delete" => 'حذف',
     "Edit_Catch_Payment" => 'تعديل سند قبض',
@@ -34,5 +33,4 @@ return [
     "Payment_information" => 'معلومات السند',
     "Release_Date" => 'تاريخ الاصدار',
     "Print" => 'طباعه',
-    "" => '',
 ];

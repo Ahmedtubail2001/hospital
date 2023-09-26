@@ -36,7 +36,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>{{ trans('Dashboard/patient.Email') }}</th>
+                                    <th>{{ trans('Dashboard/patient.Patient_name') }}</th>
                                     <th>{{ trans('Dashboard/patient.Email') }}</th>
                                     <th> {{ trans('Dashboard/patient.birth_date') }}</th>
                                     <th> {{ trans('Dashboard/patient.phone_number') }}</th>

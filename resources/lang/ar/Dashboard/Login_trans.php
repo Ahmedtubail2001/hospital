@@ -9,4 +9,5 @@ return [
     'Login_admin' => ' الدخول كآدمن',
     'Email' => ' أدخل الإيميل',
     'Password' => ' أدخل كلمة المرور ',
+    'choose_language'=>'إختر اللغة',
 ];

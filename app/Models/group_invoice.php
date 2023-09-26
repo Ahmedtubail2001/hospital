@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class single_invoice extends Model
+class group_invoice extends Model
 {
     use HasFactory;
-    protected $guarded = [];
 
-    public function Service()
+        public function Group()
     {
-        return $this->belongsTo(Service::class,'Service_id');
+        return $this->belongsTo(Groups::class,'Group_id');
     }
 
     public function Patient()
@@ -29,5 +28,4 @@ class single_invoice extends Model
     {
         return $this->belongsTo(Section::class,'section_id');
     }
-
 }

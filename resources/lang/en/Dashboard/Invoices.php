@@ -2,7 +2,7 @@
 
 return [
     'Single_service_Invoices' => 'Single Service Invoices',
-    '' => '',
+    'Invoices' => 'Invoices',
     '' => '',
     '' => '',
     '' => '',

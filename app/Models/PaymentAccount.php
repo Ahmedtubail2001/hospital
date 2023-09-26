@@ -17,7 +17,7 @@ class PaymentAccount extends Model
         }
     }
 
-        public function patients()
+    public function patients()
     {
         return $this->belongsTo(Patient::class,'patient_id');
     }

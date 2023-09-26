@@ -10,6 +10,16 @@ class patient extends Model
     use HasFactory;
     public $fillable = ['email', 'Password', 'Date_Birth', 'Phone', 'Gender', 'Blood_Group', 'name_en', 'Address_en', 'name_ar', 'Address_ar'];
 
+    public function doctor()
+    {
+        return $this->belongsTo(Invoice::class, 'doctor_id');
+    }
+
+    public function service()
+    {
+        return $this->belongsTo(Invoice::class, 'Service_id');
+    }
+
     public function getNameLangAttribute()
     {
         if (app()->getLocale() == 'en') {

@@ -32,9 +32,9 @@ class AdminController extends Controller
         }
     }
 
-    public function show(string $id)
+    public function showLogin(string $id)
     {
-        //
+        return view('Dashboard.User.auth.login');
     }
 
     public function edit(string $id)

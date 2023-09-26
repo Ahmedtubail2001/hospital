@@ -4,6 +4,9 @@ namespace App\Repository\Patients;
 
 use App\Interface\Patients\PatientRepositoryInterface;
 use App\Models\Patient;
+use App\Models\PatientAccount;
+use App\Models\ReceiptAccount;
+use App\Models\single_invoice;
 use Illuminate\Support\Facades\Hash;
 
 class PatientRepository implements PatientRepositoryInterface
@@ -49,7 +52,7 @@ class PatientRepository implements PatientRepositoryInterface
         $Patient = Patient::findorfail($id);
         return view('Dashboard.Patients.edit', compact('Patient'));
     }
-    
+
     public function update($request)
     {
         $Patient = Patient::findOrFail($request->id);
@@ -76,14 +79,17 @@ class PatientRepository implements PatientRepositoryInterface
         return redirect()->back();
     }
 
-    // public function Show($id)
-    // {
-    //     $Patient = patient::findorfail($id);
-    //     $invoices = Invoice::where('patient_id', $id)->get();
-    //     $receipt_accounts = ReceiptAccount::where('patient_id', $id)->get();
-    //     $Patient_accounts = PatientAccount::where('patient_id', $id)->get();
-
-    //     return view('Dashboard.Patients.show', compact('Patient', 'invoices', 'receipt_accounts', 'Patient_accounts'));
-    // }
+    public function Show($id)
+    {
+        $Patient = patient::findorfail($id);
+        $invoices = single_invoice::where('patient_id', $id)->get();
+        $receipt_accounts = ReceiptAccount::where('patient_id', $id)->get();
+        $Patient_accounts = PatientAccount::where('patient_id', $id)->get();
+        // $Patient_accounts = PatientAccount::orWhereNotNull('single_invoice_id')
+        //     ->orWhereNotNull('receipt_id')
+        //     ->orWhereNotNull('Patient_id')
+        //     ->orWhereNotNull('Patient_id' , $id);
+        return view('Dashboard.Patients.show', compact('Patient', 'invoices', 'receipt_accounts', 'Patient_accounts'));
+    }
 
 }

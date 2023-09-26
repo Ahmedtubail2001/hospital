@@ -9,4 +9,5 @@ return [
     'Login_admin' => ' Login as admin',
     'Email' => ' Email',
     'Password' => ' Password ',
+    'choose_language' => 'Choose Language',
 ];

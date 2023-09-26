@@ -31,11 +31,69 @@
                         <div class="row">
                             <div class="col-md-10 col-lg-10 col-xl-9 mx-auto">
                                 <div class="card-sigin">
-                                    <div class="mb-5 d-flex"> <a href="{{ url('/' . ($page = 'index')) }}"><img
-                                                src="{{ URL::asset('Dashboard/img/brand/favicon.png') }}"
-                                                class="sign-favicon ht-40" alt="logo"></a>
-                                        <h1 class="main-logo1 ml-1 mr-0 my-auto tx-28">Va<span>le</span>x</h1>
+                                    <div class="mb-5 d-flex">
+                                        <div>
+                                            <ul class="nav">
+                                                <li class="">
+
+
+                                                    <div class="dropdown  nav-itemd-none d-md-flex">
+                                                        <a href="#"
+                                                            class="d-flex  nav-item nav-link pl-0 country-flag1"
+                                                            data-toggle="dropdown" aria-expanded="false">
+
+                                                            <div>
+                                                                <h3 style="color: black">
+                                                                    {{ trans('Dashboard/Login_trans.choose_language') }}
+                                                                    <img src="{{ URL::asset('Dashboard/img/flags/world.png') }}"
+                                                                        alt="img" height="50px" width="50px">
+                                                                </h3>
+                                                            </div>
+
+                                                            @if (App::getLocale() == 'ar')
+                                                                <span
+                                                                    class="avatar country-Flag mr-0 align-self-center bg-transparent">
+
+                                                                </span>
+                                                                <strong
+                                                                    class="mr-2 ml-2 my-auto">{{ LaravelLocalization::getCurrentLocaleName() }}
+                                                                </strong>
+                                                            @else
+                                                                <span
+                                                                    class="avatar country-Flag mr-0 align-self-center bg-transparent">
+
+                                                                </span>
+                                                                <strong
+                                                                    class="mr-2 ml-2 my-auto">{{ LaravelLocalization::getCurrentLocaleName() }}
+                                                                </strong>
+                                                            @endif
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-left"
+                                                            x-plecement="bottom-end">
+                                                            @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                                                <a class="dropdown-item" rel="alternate"
+                                                                    hreflang="{{ $localeCode }}"
+                                                                    href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                                                    @if ($properties['native'] == 'Enflish')
+                                                                        {{-- <span class="flag-icon flag-icon-ps flag-icon-us"></span> --}}
+                                                                    @elseif ($properties['native'] == 'العربية')
+                                                                        {{-- <span class="flag-icon flag-icon-ps flag-icon-squared"></span> --}}
+                                                                    @endif
+                                                                    {{ $properties['native'] }}
+                                                                </a>
+                                                            @endforeach
+                                                        </div>
+                                                    </div>
+
+
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
+
+
+
+
                                     <div class="card-sigin">
                                         <div class="main-signup-header">
                                             <h2>{{ trans('Dashboard/Login_trans.Welcome_back') }}</h2>
