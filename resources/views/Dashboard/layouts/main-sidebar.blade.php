@@ -14,6 +14,7 @@
                 alt="logo"></a>
     </div>
     <div class="main-sidemenu">
+
         <div class="app-sidebar__user clearfix">
             <div class="dropdown user-pro-body">
                 <div class="">
@@ -27,8 +28,10 @@
                 </div>
             </div>
         </div>
+
         <ul class="side-menu">
             <li class="side-item side-item-category">{{ trans('Dashboard/main-sidebar.Main') }}</li>
+
             <li class="slide">
                 <a class="side-menu__item" href="{{ url('/' . ($page = 'index')) }}"><svg
                         xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -41,6 +44,7 @@
                         {{ trans('Dashboard/main-sidebar.Home') }}</span><span
                         class="angle fe fe-chevron-down"></span></a>
             </li>
+
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . ($page = '#')) }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -67,6 +71,7 @@
                     <li><a class="slide-item" href="{{ url('/' . ($page = 'treeview')) }}">Treeview</a></li> --}}
                 </ul>
             </li>
+
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . ($page = '#')) }}"><svg
                         xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -83,6 +88,7 @@
                             {{ trans('Dashboard/doctor.view_all') }} </a></li>
                 </ul>
             </li>
+
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . ($page = '#')) }}"><svg
                         xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -109,6 +115,7 @@
                     </li>
                 </ul>
             </li>
+
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . ($page = '#')) }}"><svg
                         xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -125,6 +132,7 @@
                     <li><a class="slide-item" href="#">{{ trans('Dashboard/patient.Show_Patients') }}</a></li>
                 </ul>
             </li>
+
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . ($page = '#')) }}"><svg
                         xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -143,6 +151,10 @@
                 <ul class="slide-menu">
                     <li><a class="slide-item"
                             href="{{ route('single_invoices') }}">{{ trans('Dashboard/Invoices.Single_service_Invoices') }}</a>
+                    </li>
+
+                    <li><a class="slide-item"
+                            href="{{ route('group_invoices') }}">{{ trans('Dashboard/Invoices.Group_Service_Invoices') }}</a>
                     </li>
                 </ul>
             </li>
@@ -192,6 +204,7 @@
                     <li><a class="slide-item" href="{{ url('/' . ($page = 'form-editor')) }}">WYSIWYG Editor</a></li>
                 </ul>
             </li>
+
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . ($page = '#')) }}"><svg
                         xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -205,6 +218,7 @@
                     <li><a class="slide-item" href="{{ url('/' . ($page = 'table-data')) }}">Data Tables</a></li>
                 </ul>
             </li>
+
             <li class="slide">
                 <a class="side-menu__item" href="{{ url('/' . ($page = 'widgets')) }}"><svg
                         xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -216,6 +230,7 @@
                     </svg><span class="side-menu__label">Widgets</span><span
                         class="badge badge-warning side-badge">Hot</span></a>
             </li>
+
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . ($page = '#')) }}"><svg
                         xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -232,7 +247,7 @@
                     <li><a class="slide-item" href="{{ url('/' . ($page = 'map-vector')) }}">Vector Maps</a></li>
                 </ul>
             </li>
-            <li class="side-item side-item-category">Pages</li>
+
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . ($page = '#')) }}"><svg
                         xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" class="side-menu__icon"
@@ -270,6 +285,7 @@
                     <li><a class="slide-item" href="{{ url('/' . ($page = 'empty')) }}">Empty Page</a></li>
                 </ul>
             </li>
+
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . ($page = '#')) }}"><svg
                         xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -293,6 +309,7 @@
                     <li><a class="slide-item" href="{{ url('/' . ($page = 'extras')) }}">Extras</a></li>
                 </ul>
             </li>
+
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . ($page = '#')) }}"><svg
                         xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -314,6 +331,7 @@
                     <li><a class="slide-item" href="{{ url('/' . ($page = '500')) }}">500 Error</a></li>
                 </ul>
             </li>
+
             <li class="slide ">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . ($page = '#')) }}"><svg
                         xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">

@@ -3,6 +3,7 @@
 return [
     'Single_service_Invoices' => 'فاتورة خدمة مفردة',
     'Invoices' => 'الفواتير',
+    'Group_Service_Invoices' => 'فاتورة مجموعة خدمات',
     '' => '',
     '' => '',
     '' => '',

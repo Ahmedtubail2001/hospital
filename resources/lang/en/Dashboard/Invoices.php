@@ -3,6 +3,7 @@
 return [
     'Single_service_Invoices' => 'Single Service Invoices',
     'Invoices' => 'Invoices',
+    'Group_Service_Invoices' => 'Group Service Invoices',
     '' => '',
     '' => '',
     '' => '',
