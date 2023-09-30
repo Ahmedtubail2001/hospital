@@ -199,7 +199,7 @@
                                                             <th>{{ trans('Dashboard/Payment.Description') }}</th>
                                                             <th>{{ trans('Dashboard/patient.Debit') }}</th>
                                                             <th> {{ trans('Dashboard/patient.credit') }}</th>
-                                                            <th> {{ trans('Dashboard/patient.credit') }}</th>
+                                                            <th> {{ trans('Dashboard/patient.final_balance') }}</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>

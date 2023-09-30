@@ -9,7 +9,7 @@ class group_invoice extends Model
 {
     use HasFactory;
 
-        public function Group()
+    public function Group()
     {
         return $this->belongsTo(Groups::class,'Group_id');
     }

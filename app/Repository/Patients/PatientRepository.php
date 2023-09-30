@@ -3,6 +3,7 @@
 namespace App\Repository\Patients;
 
 use App\Interface\Patients\PatientRepositoryInterface;
+use App\Models\Invoice;
 use App\Models\Patient;
 use App\Models\PatientAccount;
 use App\Models\ReceiptAccount;
@@ -82,13 +83,9 @@ class PatientRepository implements PatientRepositoryInterface
     public function Show($id)
     {
         $Patient = patient::findorfail($id);
-        $invoices = single_invoice::where('patient_id', $id)->get();
+        $invoices = Invoice::where('patient_id', $id)->get();
         $receipt_accounts = ReceiptAccount::where('patient_id', $id)->get();
         $Patient_accounts = PatientAccount::where('patient_id', $id)->get();
-        // $Patient_accounts = PatientAccount::orWhereNotNull('single_invoice_id')
-        //     ->orWhereNotNull('receipt_id')
-        //     ->orWhereNotNull('Patient_id')
-        //     ->orWhereNotNull('Patient_id' , $id);
         return view('Dashboard.Patients.show', compact('Patient', 'invoices', 'receipt_accounts', 'Patient_accounts'));
     }
 
