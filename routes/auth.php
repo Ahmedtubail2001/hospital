@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AdminController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
+use App\Http\Controllers\Auth\DoctorController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\NewPasswordController;
@@ -19,6 +20,9 @@ Route::post('logout/admin', [AdminController::class, 'destroy'])
 Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth')
     ->name('logout.user');
+    
+Route::post('/logout/doctor', [DoctorController::class, 'destroy'])
+->middleware('auth:doctor')->name('logout.doctor');
 
 Route::middleware('guest')->group(function () {
 
@@ -43,6 +47,14 @@ Route::middleware('guest')->group(function () {
         ->name('login.admin');
 
     // ################################################################################ \\
+
+    //################################## Route Doctor ##############################################
+
+    Route::post('/login/doctor', [DoctorController::class, 'store'])
+        ->middleware('guest')->name('login.doctor');
+
+//#############################################################################################
+
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
         ->name('password.request');
 

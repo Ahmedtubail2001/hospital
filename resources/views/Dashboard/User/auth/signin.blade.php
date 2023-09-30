@@ -91,9 +91,6 @@
                                         </div>
                                     </div>
 
-
-
-
                                     <div class="card-sigin">
                                         <div class="main-signup-header">
                                             <h2>{{ trans('Dashboard/Login_trans.Welcome_back') }}</h2>
@@ -111,7 +108,8 @@
 
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">
-                                                    {{ trans('Dashboard/Login_trans.Login_method') }} </label>
+                                                    {{ trans('Dashboard/Login_trans.Login_method') }}
+                                                </label>
                                                 <select class="form-control" id="sectionChooser">
                                                     <option value="" selected disabled>
                                                         {{ trans('Dashboard/Login_trans.Choose_list') }}
@@ -121,6 +119,9 @@
                                                     </option>
                                                     <option value="admin">
                                                         {{ trans('Dashboard/Login_trans.Login_admin') }}
+                                                    </option>
+                                                    <option value="doctor">
+                                                        {{ trans('Dashboard/Login_trans.Login_doctor') }}
                                                     </option>
                                                 </select>
                                             </div>
@@ -206,6 +207,47 @@
                                                         an Account</a></p>
                                             </div>
                                         </div>
+
+                                        {{-- {Form doctor} --}}
+                                        <div class="loginfoem" id="doctor">
+                                            <h5 class="font-weight-semibold mb-4">
+                                                {{ trans('Dashboard/Login_trans.Login_doctor') }} </h5>
+                                            <form method="POST" action="{{ route('login.doctor') }}">
+                                                @csrf
+                                                <div class="form-group">
+                                                    <label>{{ trans('Dashboard/Login_trans.Email') }}</label> <input
+                                                        class="form-control"
+                                                        placeholder="{{ trans('Dashboard/Login_trans.Email') }}"
+                                                        type="email" name="email" :value="old('email')" required
+                                                        autofocus>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>{{ trans('Dashboard/Login_trans.Password') }}</label> <input
+                                                        class="form-control"
+                                                        placeholder="{{ trans('Dashboard/Login_trans.Password') }}"
+                                                        type="password" name="password" required
+                                                        autocomplete="current-password">
+                                                </div><button class="btn btn-main-primary btn-block" type="submit">Sign
+                                                    In</button>
+                                                <div class="row row-xs">
+                                                    <div class="col-sm-6">
+                                                        <button class="btn btn-block"><i class="fab fa-facebook-f"></i>
+                                                            Signup with Facebook</button>
+                                                    </div>
+                                                    <div class="col-sm-6 mg-t-10 mg-sm-t-0">
+                                                        <button class="btn btn-info btn-block"><i
+                                                                class="fab fa-twitter"></i> Signup with Twitter</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <div class="main-signin-footer mt-5">
+                                                <p><a href="">Forgot password?</a></p>
+                                                <p>Don't have an account? <a
+                                                        href="{{ url('/' . ($page = 'signup')) }}">Create
+                                                        an Account</a></p>
+                                            </div>
+                                        </div>
+
                                     </div>
 
                                 </div>

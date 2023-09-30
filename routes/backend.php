@@ -49,6 +49,14 @@ Route::group(
 
         //################################### End Dashboard Admin ###################################\\
 
+        //################################### Dashboard Admin ###################################\\
+
+        Route::get('/dashboard/doctor', function () {
+            return view('Dashboard.doctor.dashboard');
+        })->middleware(['auth:doctor', 'verified'])->name('dashboard.doctor');
+
+//################################### End Dashboard Admin ###################################\\
+
         Route::middleware('auth:admin')->group(function () {
 
             Route::resource('Sections', SectionController::class);
