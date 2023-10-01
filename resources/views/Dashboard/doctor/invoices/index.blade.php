@@ -1,4 +1,4 @@
-@extends('Dashboard.layouts.master')
+@extends('Dashboard.layouts.master-doctor')
 
 @section('title')
     {{ trans('doctor/Invoices.Statements') }}
@@ -25,7 +25,8 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">{{ trans('doctor/Invoices.Statements') }}</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
+                <h4 class="content-title mb-0 my-auto">{{ trans('doctor/Invoices.Statements') }}</h4><span
+                    class="text-muted mt-1 tx-13 mr-2 mb-0">/
                     {{ trans('doctor/Invoices.Invoices') }}</span>
             </div>
         </div>
@@ -64,10 +65,8 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $invoice->invoice_date }}</td>
                                         <td>{{ $invoice->Service->namelang ?? $invoice->Group->namelang }}</td>
-                                        {{-- <a
-                                        href="{{ route('patient_details', $invoice->patient_id) }}">{{ $invoice->Patient->name }}
-                                    </a> --}}
-                                        <td> {{ $invoice->patient->namelang }} </td>
+                                        <td> <a href="{{ route('Diagnostics.show', $invoice->patient_id) }}">{{ $invoice->Patient->namelang }}
+                                            </a></td>
                                         <td>{{ number_format($invoice->price, 2) }}</td>
                                         <td>{{ number_format($invoice->discount_value, 2) }}</td>
                                         <td>{{ $invoice->tax_rate }}%</td>
@@ -75,11 +74,14 @@
                                         <td>{{ number_format($invoice->total_with_tax, 2) }}</td>
                                         <td>
                                             @if ($invoice->invoice_status == 1)
-                                                <span class="badge badge-danger">{{ trans('doctor/Invoices.Under_procedure') }}</span>
+                                                <span
+                                                    class="badge badge-danger">{{ trans('doctor/Invoices.Under_procedure') }}</span>
                                             @elseif($invoice->invoice_status == 2)
-                                                <span class="badge badge-warning">{{ trans('doctor/Invoices.review') }}</span>
+                                                <span
+                                                    class="badge badge-warning">{{ trans('doctor/Invoices.review') }}</span>
                                             @else
-                                                <span class="badge badge-success">{{ trans('doctor/Invoices.Complete') }}</span>
+                                                <span
+                                                    class="badge badge-success">{{ trans('doctor/Invoices.Complete') }}</span>
                                             @endif
                                         </td>
 
@@ -94,30 +96,30 @@
                                                     <a class="dropdown-item" href="#" data-toggle="modal"
                                                         data-target="#add_diagnosis{{ $invoice->id }}"><i
                                                             class="text-primary fa fa-stethoscope"></i>&nbsp;&nbsp;
-                                                            {{ trans('doctor/Invoices.Add_diagnosis') }} </a>
+                                                        {{ trans('doctor/Invoices.Add_diagnosis') }} </a>
                                                     <a class="dropdown-item" href="#" data-toggle="modal"
                                                         data-target="#add_review{{ $invoice->id }}"><i
                                                             class="text-warning far fa-file-alt"></i>&nbsp;&nbsp;
-                                                            {{ trans('doctor/Invoices.Add_review') }} </a>
+                                                        {{ trans('doctor/Invoices.Add_review') }} </a>
                                                     <a class="dropdown-item" href="#" data-toggle="modal"
                                                         data-target="#xray_conversion{{ $invoice->id }}"><i
                                                             class="text-primary fas fa-x-ray"></i>&nbsp;&nbsp;
-                                                            {{ trans('doctor/Invoices.Conversion_x-rays') }} </a>
+                                                        {{ trans('doctor/Invoices.Conversion_x-rays') }} </a>
                                                     <a class="dropdown-item" href="#" data-toggle="modal"
                                                         data-target="#laboratorie_conversion{{ $invoice->id }}"><i
                                                             class="text-warning fas fa-syringe"></i>&nbsp;&nbsp;
-                                                            {{ trans('doctor/Invoices.Conversion_laboratory') }} </a>
+                                                        {{ trans('doctor/Invoices.Conversion_laboratory') }} </a>
                                                     <a class="dropdown-item" href="#" data-toggle="modal"
                                                         data-target="#delete"><i
                                                             class="text-danger  ti-trash"></i>&nbsp;&nbsp;
-                                                            {{ trans('doctor/Invoices.Delete_data') }}
-                                                        </a>
+                                                        {{ trans('doctor/Invoices.Delete_data') }}
+                                                    </a>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
-                                    {{-- @include('Dashboard.Doctor.invoices.add_diagnosis')
-                                    @include('Dashboard.Doctor.invoices.add_review')
+                                    @include('Dashboard.Doctor.invoices.add_diagnosis')
+                                    {{-- @include('Dashboard.Doctor.invoices.add_review')
                                     @include('Dashboard.Doctor.invoices.xray_conversion')
                                     @include('Dashboard.Doctor.invoices.Laboratorie_conversion') --}}
                                 @endforeach

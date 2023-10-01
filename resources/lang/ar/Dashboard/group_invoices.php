@@ -34,4 +34,5 @@ return [
     'Add_new_invoice' => 'اضافة فاتورة جديدة',
     'Processes' => 'العمليات',
     'Choose_a_service' => 'اختر خدمة',
+    'Section'=>'القسم',
 ];

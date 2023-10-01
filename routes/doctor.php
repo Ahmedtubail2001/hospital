@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\doctor\DiagnosticController;
 use App\Http\Controllers\doctor\InvoiceController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -37,6 +38,10 @@ Route::group(
                 //############################# invoices route ##########################################
                 Route::resource('invoices', InvoiceController::class);
                 //############################# end invoices route ######################################
+
+                //############################# Diagnostics route ##########################################
+                Route::resource('Diagnostics', DiagnosticController::class);
+                //############################# end Diagnostics route ######################################
 
             });
         });

@@ -22,6 +22,7 @@
         <form wire:submit.prevent="store" autocomplete="off">
             @csrf
             <div class="row">
+
                 <div class="col">
                     <label>{{ trans('Dashboard/group_invoices.Patient_name') }}</label>
                     <select wire:model="patient_id" class="form-control" required>
@@ -44,11 +45,15 @@
                     </select>
                 </div>
 
+                {{-- <div class="col">
+                    <label>{{ trans('Dashboard/group_invoices.Section') }}</label>
+                    <input wire:model="section_id" type="text" class="form-control" readonly>
+                </div> --}}
+
                 <div class="col">
-                    <label>{{ trans('Dashboard/group_invoices.Choose_list') }}</label>
+                    <label> {{ trans('Dashboard/single_invoices.Section') }}</label>
                     <input wire:model="section_id" type="text" class="form-control" readonly>
                 </div>
-
 
                 <div class="col">
                     <label> {{ trans('Dashboard/group_invoices.Invoice_type') }}</label>
@@ -90,7 +95,8 @@
                                             <td>
                                                 <select wire:model="Group_id" class="form-control"
                                                     wire:change="get_price" id="exampleFormControlSelect1">
-                                                    <option value="">-- {{ trans('Dashboard/group_invoices.Choose_list') }} --</option>
+                                                    <option value="">--
+                                                        {{ trans('Dashboard/group_invoices.Choose_list') }} --</option>
                                                     @foreach ($Groups as $Group)
                                                         <option value="{{ $Group->id }}">{{ $Group->namelang }}
                                                         </option>
@@ -115,7 +121,8 @@
                     </div><!-- bd -->
                 </div>
             </div>
-            <input class="btn btn-outline-success" type="submit" value=" {{ trans('Dashboard/group_invoices.Confirm_data') }}">
+            <input class="btn btn-outline-success" type="submit"
+                value=" {{ trans('Dashboard/group_invoices.Confirm_data') }}">
         </form>
     @endif
 

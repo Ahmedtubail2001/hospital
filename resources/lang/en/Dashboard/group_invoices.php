@@ -34,4 +34,5 @@ return [
     'Add_new_invoice' => 'Add New Invoice',
     'Processes' => 'Processes',
     'Choose_a_service' => 'Choose Service',
+    'Section' => 'Section',
 ];

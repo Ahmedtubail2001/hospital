@@ -193,15 +193,15 @@
                             d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z" />
                     </svg><span class="side-menu__label">Forms</span><i class="angle fe fe-chevron-down"></i></a>
                 <ul class="slide-menu">
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'form-elements')) }}">Form Elements</a>
+                    <li><a class="slide-item" href="#">Form Elements</a>
                     </li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'form-advanced')) }}">Advanced Forms</a>
+                    <li><a class="slide-item" href="#">Advanced Forms</a>
                     </li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'form-layouts')) }}">Form Layouts</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'form-validation')) }}">Form Validation</a>
+                    <li><a class="slide-item" href="#">Form Layouts</a></li>
+                    <li><a class="slide-item" href="#">Form Validation</a>
                     </li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'form-wizards')) }}">Form Wizards</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'form-editor')) }}">WYSIWYG Editor</a></li>
+                    <li><a class="slide-item" href="#">Form Wizards</a></li>
+                    <li><a class="slide-item" href="#">WYSIWYG Editor</a></li>
                 </ul>
             </li>
 
@@ -214,8 +214,8 @@
                             d="M20 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM8 19H5v-9h3v9zm7 0h-5v-9h5v9zm5 0h-3v-9h3v9zm0-11H5V5h15v3z" />
                     </svg><span class="side-menu__label">Tables</span><i class="angle fe fe-chevron-down"></i></a>
                 <ul class="slide-menu">
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'table-basic')) }}">Basic Tables</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'table-data')) }}">Data Tables</a></li>
+                    <li><a class="slide-item" href="#">Basic Tables</a></li>
+                    <li><a class="slide-item" href="#">Data Tables</a></li>
                 </ul>
             </li>
 
@@ -243,8 +243,8 @@
                         <circle cx="12" cy="9" r="2.5" />
                     </svg><span class="side-menu__label">Maps</span><i class="angle fe fe-chevron-down"></i></a>
                 <ul class="slide-menu">
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'map-leaflet')) }}">Mapel Maps</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'map-vector')) }}">Vector Maps</a></li>
+                    <li><a class="slide-item" href="#">Mapel Maps</a></li>
+                    <li><a class="slide-item" href="#">Vector Maps</a></li>
                 </ul>
             </li>
 
@@ -275,14 +275,14 @@
                         </g>
                     </svg><span class="side-menu__label">Pages</span><i class="angle fe fe-chevron-down"></i></a>
                 <ul class="slide-menu">
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'profile')) }}">Profile</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'editprofile')) }}">Edit-Profile</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'invoice')) }}">Invoice</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'pricing')) }}">Pricing</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'gallery')) }}">Gallery</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'todotask')) }}">Todotask</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'faq')) }}">Faqs</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'empty')) }}">Empty Page</a></li>
+                    <li><a class="slide-item" href="#">Profile</a></li>
+                    <li><a class="slide-item" href="#">Edit-Profile</a></li>
+                    <li><a class="slide-item" href="#">Invoice</a></li>
+                    <li><a class="slide-item" href="#">Pricing</a></li>
+                    <li><a class="slide-item" href="#">Gallery</a></li>
+                    <li><a class="slide-item" href="#">Todotask</a></li>
+                    <li><a class="slide-item" href="#">Faqs</a></li>
+                    <li><a class="slide-item" href="#">Empty Page</a></li>
                 </ul>
             </li>
 
@@ -297,16 +297,16 @@
                             d="M12 22c5.52 0 10-4.48 10-10 0-4.75-3.31-8.72-7.75-9.74l-.08-.04-.01.02C13.46 2.09 12.74 2 12 2 6.48 2 2 6.48 2 12s4.48 10 10 10zm0-2c-.38 0-.74-.04-1.1-.09L14.89 13l2.72 4.7C16.16 19.12 14.18 20 12 20zm8-8c0 1.85-.64 3.55-1.7 4.91l-4-6.91h5.43c.17.64.27 1.31.27 2zm-.59-3h-7.99l2.71-4.7c2.4.66 4.35 2.42 5.28 4.7zM12 4c.37 0 .74.03 1.1.08L10.27 9l-1.15 2L6.4 6.3C7.84 4.88 9.82 4 12 4zm-8 8c0-1.85.64-3.55 1.7-4.91L8.54 12l1.15 2H4.26C4.1 13.36 4 12.69 4 12zm6.27 3h2.3l-2.71 4.7c-2.4-.67-4.35-2.42-5.28-4.7h5.69z" />
                     </svg><span class="side-menu__label">Utilities</span><i class="angle fe fe-chevron-down"></i></a>
                 <ul class="slide-menu">
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'background')) }}">Background</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'border')) }}">Border</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'display')) }}">Display</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'flex')) }}">Flex</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'height')) }}">Height</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'margin')) }}">Margin</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'padding')) }}">Padding</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'position')) }}">Position</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'width')) }}">Width</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'extras')) }}">Extras</a></li>
+                    <li><a class="slide-item" href="#">Background</a></li>
+                    <li><a class="slide-item" href="#">Border</a></li>
+                    <li><a class="slide-item" href="#">Display</a></li>
+                    <li><a class="slide-item" href="#">Flex</a></li>
+                    <li><a class="slide-item" href="#">Height</a></li>
+                    <li><a class="slide-item" href="#">Margin</a></li>
+                    <li><a class="slide-item" href="#">Padding</a></li>
+                    <li><a class="slide-item" href="#">Position</a></li>
+                    <li><a class="slide-item" href="#">Width</a></li>
+                    <li><a class="slide-item" href="#">Extras</a></li>
                 </ul>
             </li>
 
@@ -320,15 +320,14 @@
                     </svg><span class="side-menu__label">Custom Pages</span><i
                         class="angle fe fe-chevron-down"></i></a>
                 <ul class="slide-menu">
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'signin')) }}">Sign In</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'signup')) }}">Sign Up</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'forgot')) }}">Forgot Password</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'reset')) }}">Reset Password</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = 'lockscreen')) }}">Lockscreen</a></li>
-                    <li><a class="slide-item"
-                            href="{{ url('/' . ($page = 'underconstruction')) }}">UnderConstruction</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = '404')) }}">404 Error</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . ($page = '500')) }}">500 Error</a></li>
+                    <li><a class="slide-item" href="#">Sign In</a></li>
+                    <li><a class="slide-item" href="#">Sign Up</a></li>
+                    <li><a class="slide-item" href="#">Forgot Password</a></li>
+                    <li><a class="slide-item" href="#">Reset Password</a></li>
+                    <li><a class="slide-item" href="#">Lockscreen</a></li>
+                    <li><a class="slide-item" href="#">UnderConstruction</a></li>
+                    <li><a class="slide-item" href="#">404 Error</a></li>
+                    <li><a class="slide-item" href="#">500 Error</a></li>
                 </ul>
             </li>
 
@@ -344,12 +343,12 @@
                     </svg><span class="side-menu__label">Submenus</span><i class="angle fe fe-chevron-down"></i></a>
                 <ul class="slide-menu">
                     <li class="sub-slide">
-                        <a class="sub-side-menu__item" data-toggle="sub-slide"
-                            href="{{ url('/' . ($page = '#')) }}"><span class="sub-side-menu__label">Level1</span><i
+                        <a class="sub-side-menu__item" data-toggle="sub-slide" href="#"><span
+                                class="sub-side-menu__label">Level1</span><i
                                 class="sub-angle fe fe-chevron-down"></i></a>
                         <ul class="sub-slide-menu">
-                            <li><a class="sub-slide-item" href="{{ url('/' . ($page = '#')) }}">Level01</a></li>
-                            <li><a class="sub-slide-item" href="{{ url('/' . ($page = '#')) }}">Level02</a></li>
+                            <li><a class="sub-slide-item" href="#">Level01</a></li>
+                            <li><a class="sub-slide-item" href="#">Level02</a></li>
                         </ul>
                     </li>
                 </ul>
