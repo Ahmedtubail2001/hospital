@@ -20,9 +20,9 @@ Route::post('logout/admin', [AdminController::class, 'destroy'])
 Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth')
     ->name('logout.user');
-    
+
 Route::post('/logout/doctor', [DoctorController::class, 'destroy'])
-->middleware('auth:doctor')->name('logout.doctor');
+    ->middleware('auth:doctor')->name('logout.doctor');
 
 Route::middleware('guest')->group(function () {
 

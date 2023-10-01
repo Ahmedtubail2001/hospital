@@ -28,4 +28,7 @@ return [
     'Invoice_information' =>'معلومات الفاتوره',
     'Total' =>'الاجمالي',
     'Print' =>'طباعه',
+    'Edit'=>'تعديل البيانات',
+    'Delete_Data'=>'حذف البيانالت',
+
 ];

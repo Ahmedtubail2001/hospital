@@ -28,5 +28,6 @@ return [
     'Invoice_information' => 'Invoice Information',
     'Total' => 'Total',
     'Print' => 'Print',
-
+    'Edit'=>'Edit Data',
+    'Delete_Data'=>'Delete Data',
 ];

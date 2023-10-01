@@ -46,4 +46,6 @@ return [
     'Debit' => 'Debit',
     'credit' => 'credit',
     'final_balance' => 'Final Balance',
+    'Edit' => 'Edit Data',
+    'Delete_Data' => 'Delete Data',
 ];

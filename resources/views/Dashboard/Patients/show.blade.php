@@ -208,8 +208,9 @@
                                                                 <td>{{ $loop->iteration }}</td>
                                                                 <td>{{ $Patient_account->date }}</td>
                                                                 <td>
-                                                                    @if ($Patient_account->single_invoice_id == true)
-                                                                        {{ $Patient_account->invoice->Service->NameLang ?? $Patient_account->invoice->Group->NameLang }}
+                                                                    @if ($Patient_account->invoice_id == true)
+                                                                        {{ $Patient_account->invoice->Service->NameLang 
+                                                                        ?? $Patient_account->invoice->Group->NameLang }}
                                                                     @elseif($Patient_account->receipt_id == true)
                                                                         {{ $Patient_account->ReceiptAccount->DescriptionLang }}
                                                                     @elseif($Patient_account->Payment_id == true)

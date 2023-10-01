@@ -63,17 +63,32 @@
                                         </td>
                                         <td>{{ $Patient->Blood_Group }}</td>
                                         <td>{{ $Patient->AddressLang }}</td>
+
                                         <td>
-                                            <a href="{{ route('Patients.edit', $Patient->id) }}"
-                                                class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
+                                            <div class="dropdown">
+                                                <button aria-expanded="false" aria-haspopup="true"
+                                                    class="btn ripple btn-outline-primary btn-sm" data-toggle="dropdown"
+                                                    type="button">{{ trans('Dashboard/patient.Processes') }}<i
+                                                        class="fas fa-caret-down mr-1"></i></button>
+                                                <div class="dropdown-menu tx-13">
 
-                                            <button class="btn btn-sm btn-danger" data-toggle="modal"
-                                                data-target="#Deleted{{ $Patient->id }}"><i
-                                                    class="fas fa-trash"></i></button>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('Patients.edit', $Patient->id) }}">
+                                                        <i class="fas fa-edit"></i>
+                                                        &nbsp;&nbsp;
+                                                        {{ trans('Dashboard/patient.Edit') }} </a>
 
-                                            <a href="{{ route('Patients.show', $Patient->id) }}"
-                                                class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
+                                                    <a class="dropdown-item" data-toggle="modal"
+                                                        data-target="#Deleted{{ $Patient->id }}"><i
+                                                            class="fas fa-trash"></i>&nbsp;&nbsp;
+                                                        {{ trans('Dashboard/patient.Delete_Data') }} </a>
 
+                                                    <a href="{{ route('Patients.show', $Patient->id) }}"
+                                                        class="dropdown-item">
+                                                        <i class="fas fa-eye"></i> &nbsp;&nbsp;
+                                                        {{ trans('Dashboard/patient.patient_information') }} </a>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                     @include('Dashboard.Patients.Deleted')
@@ -111,5 +126,4 @@
 
     <script src="{{ URL::asset('Dashboard/plugins/notify/js/notifIt.js') }}"></script>
     <script src="{{ URL::asset('Dashboard/plugins/notify/js/notifit-custom.js') }}"></script>
-
 @endsection

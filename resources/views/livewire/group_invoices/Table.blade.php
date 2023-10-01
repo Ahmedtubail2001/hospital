@@ -50,18 +50,29 @@
                             : trans('Dashboard/group_invoices.Late_payment') }}
                     </td>
                     <td>
-                        <button wire:click="edit({{ $group_invoice->id }})" class="btn btn-sm btn-success"><i
-                                class="fa fa-edit"></i>
-                        </button>
+                        <div class="dropdown">
+                            <button aria-expanded="false" aria-haspopup="true"
+                                class="btn ripple btn-outline-primary btn-sm" data-toggle="dropdown"
+                                type="button">{{ trans('Dashboard/single_invoices.Processes') }}<i
+                                    class="fas fa-caret-down mr-1"></i></button>
+                            <div class="dropdown-menu tx-13">
 
-                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                            data-target="#delete_invoice" wire:click="delete({{ $group_invoice->id }})"><i
-                                class="fa fa-trash"></i>
-                        </button>
+                                <a class="dropdown-item" href="#" data-toggle="modal"
+                                    wire:click="edit({{ $group_invoice->id }})"><i
+                                        class="fas fa-edit"></i>&nbsp;&nbsp;
+                                    {{ trans('Dashboard/single_invoices.Edit') }} </a>
 
-                        <a href="#" wire:click="print({{ $group_invoice->id }})" class="btn btn-primary btn-sm"
-                            target="_blank" title="طباعه سند صرف"><i class="fas fa-print"></i>
-                        </a>
+                                <a class="dropdown-item" href="#" data-toggle="modal"
+                                    data-target="#delete_invoice" wire:click="delete({{ $group_invoice->id }})"><i
+                                        class="fas fa-trash"></i>&nbsp;&nbsp;
+                                    {{ trans('Dashboard/single_invoices.Delete_Data') }} </a>
+
+                                <a class="dropdown-item" href="#" data-toggle="modal"
+                                    wire:click="print({{ $group_invoice->id }})"><i
+                                        class="fas fa-eye"></i>&nbsp;&nbsp;
+                                    {{ trans('Dashboard/single_invoices.Print') }} </a>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             @endforeach

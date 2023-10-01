@@ -60,22 +60,30 @@
                                             : trans('Dashboard/single_invoices.Late_payment') }}
                                     </td>
                                     <td>
-                                        <button wire:click="edit({{ $single_invoice->id }})"
-                                            class="btn btn-sm btn-success">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
+                                        <div class="dropdown">
+                                            <button aria-expanded="false" aria-haspopup="true"
+                                                class="btn ripple btn-outline-primary btn-sm" data-toggle="dropdown"
+                                                type="button">{{ trans('Dashboard/single_invoices.Processes') }}<i
+                                                    class="fas fa-caret-down mr-1"></i></button>
+                                            <div class="dropdown-menu tx-13">
 
-                                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                            data-target="#delete_invoice"
-                                            wire:click="delete({{ $single_invoice->id }})">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
+                                                <a class="dropdown-item" href="#" data-toggle="modal"
+                                                    wire:click="edit({{ $single_invoice->id }})"><i
+                                                        class="fas fa-edit"></i>&nbsp;&nbsp;
+                                                    {{ trans('Dashboard/single_invoices.Edit') }} </a>
 
-                                        <button wire:click="print({{ $single_invoice->id }})"
-                                            class="btn btn-primary btn-sm">
-                                            <i class="fas fa-eye"></i>
-                                        </button>
+                                                <a class="dropdown-item" href="#" data-toggle="modal"
+                                                    data-target="#delete_invoice"
+                                                    wire:click="delete({{ $single_invoice->id }})"><i
+                                                        class="fas fa-trash"></i>&nbsp;&nbsp;
+                                                    {{ trans('Dashboard/single_invoices.Delete_Data') }} </a>
 
+                                                <a class="dropdown-item" href="#" data-toggle="modal"
+                                                    wire:click="print({{ $single_invoice->id }})"><i
+                                                        class="fas fa-eye"></i>&nbsp;&nbsp;
+                                                    {{ trans('Dashboard/single_invoices.Print') }} </a>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                                 @include('livewire.single_invoices.delete')
