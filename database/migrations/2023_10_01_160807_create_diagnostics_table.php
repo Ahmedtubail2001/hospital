@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('diagnostics', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            // $table->dateTime('review_date')->nullable();
+            $table->dateTime('review_date')->nullable();
             $table->longText('diagnosis_en');
             $table->longText('diagnosis_ar');
             $table->longText('medicine');

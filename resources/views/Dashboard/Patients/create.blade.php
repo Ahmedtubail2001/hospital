@@ -4,7 +4,7 @@
     <link href="{{ URL::asset('dashboard/plugins/notify/css/notifIt.css') }}" rel="stylesheet" />
 @endsection
 @section('title')
-    اضافة مريض جديد
+    {{ trans('Dashboard/patient.Add_new_patient') }}
 @endsection
 @section('page-header')
     <!-- breadcrumb -->

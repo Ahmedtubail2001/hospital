@@ -6,9 +6,9 @@ interface InvoicesRepositoryInterface
 {
     public function index();
 
-    // public function reviewInvoices();
+    public function reviewInvoices();
 
-    // public function completedInvoices();
+    public function completedInvoices();
 
     // public function show($id);
 

@@ -43,6 +43,18 @@ Route::group(
                 Route::resource('Diagnostics', DiagnosticController::class);
                 //############################# end Diagnostics route ######################################
 
+                //############################# completed_invoices route ##########################################
+                Route::get('completed_invoices', [InvoiceController::class, 'completedInvoices'])->name('completedInvoices');
+                //############################# end invoices route ################################################
+
+                //############################# review_invoices route ##########################################
+                Route::get('review_invoices', [InvoiceController::class, 'reviewInvoices'])->name('reviewInvoices');
+                //############################# end invoices route #############################################
+
+                //############################# review_invoices route ##########################################
+                Route::post('add_review', [DiagnosticController::class, 'addReview'])->name('add_review');
+                //############################# end invoices route #############################################
+
             });
         });
 

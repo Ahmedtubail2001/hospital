@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Invoice extends Model
 {
     use HasFactory;
+    public $fillable = ['invoice_status', '', '', '', '', '', '', '', '', ''];
 
     public function Service()
     {
@@ -33,5 +34,5 @@ class Invoice extends Model
     {
         return $this->belongsTo(Groups::class, 'Group_id');
     }
-    
+
 }

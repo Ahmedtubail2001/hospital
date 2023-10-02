@@ -14,7 +14,7 @@ return [
     'Invoice_status' => 'Invoice Status',
     'Processes' => 'Processes',
     'Under_procedure' => 'Under Procedure',
-    'review' => 'review',
+    'review' => 'Review',
     'Complete' => 'Complete',
     'Add_diagnosis' => 'Add Diagnosis',
     'Add_review' => 'Add Review',
@@ -32,4 +32,9 @@ return [
     'Saving_data' => 'Saving Data',
     'Patients' => 'Patients',
     'Patient_record' => 'Patient Record',
+    'patient_review' => 'Define Patient Review',
+    'Review_Date' => 'Review Date',
+    'Completed_statements' => 'Completed Statements',
+    "List_Statements" => 'List Statements',
+
 ];

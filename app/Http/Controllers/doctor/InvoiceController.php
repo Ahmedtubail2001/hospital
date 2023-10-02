@@ -23,12 +23,12 @@ class InvoiceController extends Controller
 
     public function reviewInvoices()
     {
-        // return $this->invoices->reviewInvoices();
+        return $this->invoices->reviewInvoices();
     }
 
     public function completedInvoices()
     {
-        // return $this->invoices->completedInvoices();
+        return $this->invoices->completedInvoices();
     }
 
     public function create()

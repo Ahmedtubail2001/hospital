@@ -1,7 +1,7 @@
 @extends('Dashboard.layouts.master-doctor')
 
 @section('title')
-    {{ trans('doctor/Invoices.Statements') }}
+    {{ trans('doctor/Invoices.review') }}
 @stop
 
 @section('css')
@@ -27,13 +27,12 @@
             <div class="d-flex">
                 <h4 class="content-title mb-0 my-auto">{{ trans('doctor/Invoices.Statements') }}</h4><span
                     class="text-muted mt-1 tx-13 mr-2 mb-0">/
-                    {{ trans('doctor/Invoices.List_Statements') }}</span>
+                    {{ trans('doctor/Invoices.review') }}</span>
             </div>
         </div>
     </div>
     <!-- breadcrumb -->
 @endsection
-
 @section('content')
     @include('Dashboard.messages_alert')
     <!-- row -->
@@ -56,6 +55,7 @@
                                     <th> {{ trans('doctor/Invoices.Tax_value') }}</th>
                                     <th> {{ trans('doctor/Invoices.Total_with_tax') }}</th>
                                     <th> {{ trans('doctor/Invoices.Invoice_status') }}</th>
+                                    <th> {{ trans('doctor/Invoices.Review_Date') }}</th>
                                     <th> {{ trans('doctor/Invoices.Processes') }}</th>
                                 </tr>
                             </thead>
@@ -65,8 +65,9 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $invoice->invoice_date }}</td>
                                         <td>{{ $invoice->Service->namelang ?? $invoice->Group->namelang }}</td>
-                                        <td> <a href="{{ route('Diagnostics.show', $invoice->patient_id) }}">{{ $invoice->Patient->namelang }}
-                                            </a></td>
+                                        <td><a
+                                                href="{{ route('Diagnostics.show', $invoice->patient_id) }}">{{ $invoice->Patient->namelang }}</a>
+                                        </td>
                                         <td>{{ number_format($invoice->price, 2) }}</td>
                                         <td>{{ number_format($invoice->discount_value, 2) }}</td>
                                         <td>{{ $invoice->tax_rate }}%</td>
@@ -85,8 +86,10 @@
                                             @endif
                                         </td>
 
-                                        <td>
+                                        <td>{{ \App\Models\Diagnostic::where(['invoice_id' => $invoice->id])->first()->review_date }}
+                                        </td>
 
+                                        <td>
                                             <div class="dropdown">
                                                 <button aria-expanded="false" aria-haspopup="true"
                                                     class="btn ripple btn-outline-primary btn-sm" data-toggle="dropdown"
@@ -97,31 +100,27 @@
                                                         data-target="#add_diagnosis{{ $invoice->id }}"><i
                                                             class="text-primary fa fa-stethoscope"></i>&nbsp;&nbsp;
                                                         {{ trans('doctor/Invoices.Add_diagnosis') }} </a>
-                                                    <a class="dropdown-item" href="#" data-toggle="modal"
-                                                        data-target="#add_review{{ $invoice->id }}"><i
+                                                    <a class="dropdown-item" href="#"><i
                                                             class="text-warning far fa-file-alt"></i>&nbsp;&nbsp;
-                                                        {{ trans('doctor/Invoices.Add_review') }} </a>
+                                                        {{ trans('doctor/Invoices.Add_review') }}
+                                                    </a>
                                                     <a class="dropdown-item" href="#" data-toggle="modal"
-                                                        data-target="#xray_conversion{{ $invoice->id }}"><i
+                                                        data-target="#update_password"><i
                                                             class="text-primary fas fa-x-ray"></i>&nbsp;&nbsp;
-                                                        {{ trans('doctor/Invoices.Conversion_x-rays') }} </a>
+                                                        {{ trans('doctor/Invoices.Conversion_x-rays') }}</a>
                                                     <a class="dropdown-item" href="#" data-toggle="modal"
-                                                        data-target="#laboratorie_conversion{{ $invoice->id }}"><i
+                                                        data-target="#update_status"><i
                                                             class="text-warning fas fa-syringe"></i>&nbsp;&nbsp;
-                                                        {{ trans('doctor/Invoices.Conversion_laboratory') }} </a>
+                                                        {{ trans('doctor/Invoices.Conversion_laboratory') }}</a>
                                                     <a class="dropdown-item" href="#" data-toggle="modal"
                                                         data-target="#delete"><i
                                                             class="text-danger  ti-trash"></i>&nbsp;&nbsp;
-                                                        {{ trans('doctor/Invoices.Delete_data') }}
-                                                    </a>
+                                                        {{ trans('doctor/Invoices.Delete_data') }}</a>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
                                     @include('Dashboard.Doctor.invoices.add_diagnosis')
-                                    @include('Dashboard.Doctor.invoices.add_review')
-                                    {{-- @include('Dashboard.Doctor.invoices.xray_conversion')
-                                    @include('Dashboard.Doctor.invoices.Laboratorie_conversion') --}}
                                 @endforeach
                             </tbody>
                         </table>
@@ -141,17 +140,6 @@
 @endsection
 
 @section('js')
-    <script src="{{ URL::asset('dashboard/plugins/notify/js/notifIt.js') }}"></script>
-    <script src="{{ URL::asset('/plugins/notify/js/notifit-custom.js') }}"></script>
-    <script src="{{ URL::asset('dashboard/plugins/jquery-ui/ui/widgets/datepicker.js') }}"></script>
-    <script src="{{ URL::asset('dashboard/plugins/jquery.maskedinput/jquery.maskedinput.js') }}"></script>
-    <script src="{{ URL::asset('dashboard/plugins/spectrum-colorpicker/spectrum.js') }}"></script>
-    <script src="{{ URL::asset('dashboard/plugins/select2/js/select2.min.js') }}"></script>
-    <script src="{{ URL::asset('dashboard/plugins/ion-rangeslider/js/ion.rangeSlider.min.js') }}"></script>
-    <script src="{{ URL::asset('dashboard/plugins/amazeui-datetimepicker/js/amazeui.datetimepicker.min.js') }}"></script>
-    <script src="{{ URL::asset('dashboard/plugins/jquery-simple-datetimepicker/jquery.simple-dtpicker.js') }}"></script>
-    <script src="{{ URL::asset('dashboard/plugins/pickerjs/picker.min.js') }}"></script>
-    <script src="{{ URL::asset('dashboard/js/form-elements.js') }}"></script>
     <script src="{{ URL::asset('Dashboard/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ URL::asset('Dashboard/plugins/datatable/js/dataTables.dataTables.min.js') }}"></script>
     <script src="{{ URL::asset('Dashboard/plugins/datatable/js/dataTables.responsive.min.js') }}"></script>
@@ -169,14 +157,6 @@
     <script src="{{ URL::asset('Dashboard/plugins/datatable/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ URL::asset('Dashboard/plugins/datatable/js/responsive.bootstrap4.min.js') }}"></script>
     <script src="{{ URL::asset('Dashboard/js/table-data.js') }}"></script>
-
-
-
-    <script>
-        $('#review_date').datetimepicker({
-
-        })
-    </script>
-
-
+    <script src="{{ URL::asset('Dashboard/plugins/notify/js/notifIt.js') }}"></script>
+    <script src="{{ URL::asset('Dashboard/plugins/notify/js/notifit-custom.js') }}"></script>
 @endsection

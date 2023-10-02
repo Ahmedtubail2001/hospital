@@ -8,5 +8,5 @@ interface DiagnosisRepositoryInterface
 
     public function show($id);
 
-    // public function addReview($request);
+    public function addReview($request);
 }
