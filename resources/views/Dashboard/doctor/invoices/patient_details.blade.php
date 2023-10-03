@@ -35,14 +35,17 @@
                                     <div class="tabs-menu1">
                                         <!-- Tabs -->
                                         <ul class="nav panel-tabs main-nav-line">
+
                                             <li class="nav-item"><a href="#tab1" class="nav-link active"
                                                     data-toggle="tab"> {{ trans('doctor/Invoices.Patient_record') }}</a>
                                             </li>
+
                                             <li class="nav-item"><a href="#tab2" class="nav-link" data-toggle="tab">
                                                     {{ trans('doctor/Invoices.x-ray') }}</a></li>
-                                            {{-- <li class="nav-item"><a href="#tab3" class="nav-link"
-                                                    data-toggle="tab">المختبر</a>
-                                            </li> --}}
+
+                                            <li class="nav-item"><a href="#tab3" class="nav-link"
+                                                    data-toggle="tab"> {{ trans('doctor/Invoices.Laboratory') }}</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -103,9 +106,11 @@
                                                                 {{-- <td>{{ $patient_ray->employee->name ?? 'noEmployee' }}</td> --}}
                                                                 {{-- <td>{{ $patient_ray->employee->name }}</td> --}}
                                                                 @if ($patient_ray->case == 0)
-                                                                    <td class="text-danger"> {{ trans('doctor/Invoices.not_complete') }}</td>
+                                                                    <td class="text-danger">
+                                                                        {{ trans('doctor/Invoices.not_complete') }}</td>
                                                                 @else
-                                                                    <td class="text-success"> {{ trans('doctor/Invoices.Complete') }}</td>
+                                                                    <td class="text-success">
+                                                                        {{ trans('doctor/Invoices.Complete') }}</td>
                                                                 @endif
 
                                                                 @if ($patient_ray->doctor_id == auth()->user()->id)
@@ -141,7 +146,8 @@
                                         {{-- End Invices Patient --}}
 
                                         {{-- Start Receipt Patient  --}}
-                                        {{-- <div class="tab-pane" id="tab3">
+
+                                        <div class="tab-pane" id="tab3">
                                             <div class="table-responsive">
                                                 <table class="table table-hover text-md-nowrap text-center">
                                                     <thead>
@@ -156,8 +162,8 @@
                                                         @foreach ($patient_Laboratories as $patient_Laboratorie)
                                                             <tr>
                                                                 <td>{{ $loop->iteration }}</td>
-                                                                <td>{{ $patient_Laboratorie->description }}</td>
-                                                                <td>{{ $patient_Laboratorie->doctor->name }}</td>
+                                                                <td>{{ $patient_Laboratorie->descriptionlang }}</td>
+                                                                <td>{{ $patient_Laboratorie->doctor->namelang }}</td>
 
                                                                 @if ($patient_Laboratorie->doctor_id == auth()->user()->id)
                                                                     @if ($patient_Laboratorie->case == 0)
@@ -165,12 +171,12 @@
                                                                             <a class="modal-effect btn btn-sm btn-primary"
                                                                                 data-effect="effect-scale"
                                                                                 data-toggle="modal"
-                                                                                href="#edit_xray_conversion{{ $patient_Laboratorie->id }}"><i
+                                                                                href="#edit_laboratorie_conversion{{ $patient_Laboratorie->id }}"><i
                                                                                     class="fas fa-edit"></i></a>
                                                                             <a class="modal-effect btn btn-sm btn-danger"
                                                                                 data-effect="effect-scale"
                                                                                 data-toggle="modal"
-                                                                                href="#delete{{ $patient_Laboratorie->id }}"><i
+                                                                                href="#deleted_laboratorie{{ $patient_Laboratorie->id }}"><i
                                                                                     class="las la-trash"></i></a>
                                                                         </td>
                                                                     @else
@@ -189,7 +195,7 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                        </div> --}}
+                                        </div>
 
                                         {{-- End Receipt Patient  --}}
 

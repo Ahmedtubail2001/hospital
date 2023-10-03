@@ -43,12 +43,12 @@ class InvoiceController extends Controller
 
     public function show($id)
     {
-        // return $this->invoices->show($id);
+        return $this->invoices->show($id);
     }
 
     public function showLaboratorie($id)
     {
-        // return $this->invoices->showLaboratorie($id);
+        return $this->invoices->showLaboratorie($id);
     }
 
     public function edit($id)

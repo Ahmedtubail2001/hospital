@@ -10,7 +10,7 @@ interface InvoicesRepositoryInterface
 
     public function completedInvoices();
 
-    // public function show($id);
+    public function show($id);
 
-    // public function showLaboratorie($id);
+    public function showLaboratorie($id);
 }

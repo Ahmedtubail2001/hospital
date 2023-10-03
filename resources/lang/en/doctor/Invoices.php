@@ -43,4 +43,7 @@ return [
     'doctors_name' => 'Doctors Name',
     'Detection_status' => 'Detection Status',
     'not_complete' => 'Not Complete',
+    'are_you_sure_Delete_x-ray' => 'Are You Sure Delete x-ray ',
+    'Delete_laboratory_details' => 'Delete Laboratory Details',
+    'Laboratory' => 'Laboratory',
 ];
