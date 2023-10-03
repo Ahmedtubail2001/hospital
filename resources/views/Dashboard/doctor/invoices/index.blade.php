@@ -65,7 +65,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $invoice->invoice_date }}</td>
                                         <td>{{ $invoice->Service->namelang ?? $invoice->Group->namelang }}</td>
-                                        <td> <a href="{{ route('Diagnostics.show', $invoice->patient_id) }}">{{ $invoice->Patient->namelang }}
+                                        <td> <a href="{{ route('patient_details', $invoice->patient_id) }}">{{ $invoice->Patient->namelang }}
                                             </a></td>
                                         <td>{{ number_format($invoice->price, 2) }}</td>
                                         <td>{{ number_format($invoice->discount_value, 2) }}</td>
@@ -120,8 +120,8 @@
                                     </tr>
                                     @include('Dashboard.Doctor.invoices.add_diagnosis')
                                     @include('Dashboard.Doctor.invoices.add_review')
-                                    {{-- @include('Dashboard.Doctor.invoices.xray_conversion')
-                                    @include('Dashboard.Doctor.invoices.Laboratorie_conversion') --}}
+                                    @include('Dashboard.Doctor.invoices.xray_conversion')
+                                    {{-- @include('Dashboard.Doctor.invoices.Laboratorie_conversion') --}}
                                 @endforeach
                             </tbody>
                         </table>

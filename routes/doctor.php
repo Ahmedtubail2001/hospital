@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\doctor\DiagnosticController;
+use App\Http\Controllers\Dashboard_doctor\DiagnosticController;
+use App\Http\Controllers\Dashboard_doctor\PatientDetailsController;
+use App\Http\Controllers\Dashboard_doctor\RayController;
 use App\Http\Controllers\doctor\InvoiceController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -54,6 +56,14 @@ Route::group(
                 //############################# review_invoices route ##########################################
                 Route::post('add_review', [DiagnosticController::class, 'addReview'])->name('add_review');
                 //############################# end invoices route #############################################
+
+                //############################# rays route ##########################################
+                Route::resource('rays', RayController::class);
+                //############################# end rays route #############################################
+
+                //############################# patient_details route ##########################################
+                Route::get('patient_details/{id}', [PatientDetailsController::class, 'index'])->name('patient_details');
+                //############################# end patient_details route #############################################
 
             });
         });

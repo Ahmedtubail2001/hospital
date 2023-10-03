@@ -63,13 +63,9 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $invoice->invoice_date }}</td>
                                         <td>{{ $invoice->Service->namelang ?? $invoice->Group->namelang }}</td>
-                                        {{-- <td><a
-                                                href="{{ route('patient_details', $invoice->patient_id) }}">{{ $invoice->Patient->namelang }}</a>
-                                        </td> --}}
                                         <td><a
-                                                href="{{ route('Diagnostics.show', $invoice->patient_id) }}">{{ $invoice->Patient->namelang }}</a>
+                                                href="{{ route('patient_details', $invoice->patient_id) }}">{{ $invoice->Patient->namelang }}</a>
                                         </td>
-
                                         <td>{{ number_format($invoice->price, 2) }}</td>
                                         <td>{{ number_format($invoice->discount_value, 2) }}</td>
                                         <td>{{ $invoice->tax_rate }}%</td>
@@ -77,11 +73,14 @@
                                         <td>{{ number_format($invoice->total_with_tax, 2) }}</td>
                                         <td>
                                             @if ($invoice->invoice_status == 1)
-                                                <span class="badge badge-danger">{{ trans('doctor/Invoices.Under_procedure') }}</span>
+                                                <span
+                                                    class="badge badge-danger">{{ trans('doctor/Invoices.Under_procedure') }}</span>
                                             @elseif($invoice->invoice_status == 2)
-                                                <span class="badge badge-warning">{{ trans('doctor/Invoices.review') }}</span>
+                                                <span
+                                                    class="badge badge-warning">{{ trans('doctor/Invoices.review') }}</span>
                                             @else
-                                                <span class="badge badge-success">{{ trans('doctor/Invoices.Complete') }}</span>
+                                                <span
+                                                    class="badge badge-success">{{ trans('doctor/Invoices.Complete') }}</span>
                                             @endif
                                         </td>
                                     </tr>

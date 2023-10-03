@@ -36,5 +36,11 @@ return [
     'Review_Date' => 'Review Date',
     'Completed_statements' => 'Completed Statements',
     "List_Statements" => 'List Statements',
-
+    'Delete_x-ray_details' => 'Delete x-ray Details',
+    'are_you_sure' => 'Are you Sure You Want To Delete The x-ray Data?',
+    'patient_information' => 'Patient Information',
+    'x-ray' => 'X-Ray',
+    'doctors_name' => 'Doctors Name',
+    'Detection_status' => 'Detection Status',
+    'not_complete' => 'Not Complete',
 ];
